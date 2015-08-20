@@ -1,0 +1,176 @@
+.section-portfolio
+	height: 100vh
+	min-height: 850px
+	overflow: hidden
+	// Remove margin collapsing
+	padding: 1px
+	background-color: #f5fafa
+	background-image: url(/graphics/ui/overlay.png)
+	+box-shadow(0, 1px, 1px, 0, rgba(0, 0, 0, 0.085), inset)
+
+	.wrapper
+		position: relative
+		text-align: center
+		top: 50%
+		margin-top: -380px
+
+	.section-name
+		padding: 0
+		line-height: 1.7em
+		color: $section-portfolio-section-name-color
+		font: $section-portfolio-section-name-font-size  $section-portfolio-section-name-family
+
+	.section-content
+		padding: 0 50px
+		color: $section-portfolio-section-content-color
+		font: $section-portfolio-section-content-font-size  $section-portfolio-section-content-family
+		line-height: 1.86em
+
+	.section-name,
+	.section-content
+		font-weight: 300
+
+	.items-list-wrapper
+		position: relative
+		width: $section-portfolio-item-width-size * $section-portfolio-items-show-count
+		height: $section-portfolio-item-height-size	 
+		margin: 70px auto
+
+		&:nth-child(3)
+			margin-top: 50px
+
+		.list-manip
+			position: relative
+			background-color: white
+			height: 30px
+			+noselect
+
+		.larrow,
+		.rarrow
+			position: absolute
+			top: 2px
+			width: 40px
+			height: inherit
+			font: 22px 'Wingdings 3', Arial
+			color: #D0D7DC
+			cursor: pointer
+			+transition(color .2s cubic-bezier(0.19, 1, 0.22, 1) 0s)
+
+			&:hover
+				color: #A5A9AC
+			&:active
+				color: #77797A
+
+		.larrow
+			left: 0px
+
+		.rarrow
+			left: 28px
+	
+	.items-list-name
+		height: inherit
+		float: right
+		margin-right: 20px
+		font-family: Myriad Pro, Arial
+		font-size: 17px
+		line-height: 190%
+		color: #95999C
+
+	.items-list
+		width: inherit
+		height: inherit
+		overflow: hidden
+		 
+	.items-wrapper
+		position: relative
+		left: 0
+		height: inherit
+		+transition(all 1.7s cubic-bezier(0.19, 1, 0.22, 1) 0s)
+
+		&.items-wrapper-1
+			width: $section-portfolio-item-width-size * $section-portfolio-items-1-count
+		
+		&.items-wrapper-2
+			width: $section-portfolio-item-width-size * $section-portfolio-items-2-count
+		 
+	a
+		margin: 0
+		padding: 0
+		text-decoration: none
+		float: left
+
+	.item
+		position: relative
+		width: $section-portfolio-item-width
+		height: $section-portfolio-item-height
+		margin: $section-portfolio-item-margin
+		background-color: transparent
+		border: $section-portfolio-item-border-size solid white
+		cursor: pointer
+		text-align: center
+
+		.img-wrapper
+			position: relative
+			width: 100%
+			height: 160px
+			
+			&:after,
+			&:before
+				display: block
+				position: absolute
+				width: inherit
+				height: inherit
+				+opacity(0)
+				+transition("opacity 70ms ease-in-out 0s")
+
+			&:after
+				content: ''
+				top: 0
+				left: 0
+				background-color: #EEE
+				z-index: 10
+			
+			&:before
+				content: 'VIEW'
+				top: 50%
+				margin-top: -8px
+				color: #95999C
+				font:
+					size: 17px
+					weight: 100
+					family: Myriad Pro, Arial
+				z-index: 20
+
+		img
+			width: inherit
+			height: inherit
+
+		p
+			position: relative
+			margin-top: 10px
+			overflow: hidden
+			font: $section-portfolio-item-name-font-size  $section-portfolio-item-name-family
+			text-align: center
+			font-weight: 300
+			color: $section-portfolio-item-name-color
+
+			&:after
+				content: ''
+				position: absolute
+				top: -2px
+				right: -25px
+				width: 20px
+				height: 20px
+				background:
+					image: url(/graphics/ui/opppen.gif)
+					repeat: no-repeat
+					position: 50% 50%
+				+transition("right 70ms ease-in-out 0s")
+
+		&:hover p:after
+			right: 0
+
+		&:hover .img-wrapper:after
+			+opacity(0.8)
+		&:hover .img-wrapper:before
+			+opacity(1.0)

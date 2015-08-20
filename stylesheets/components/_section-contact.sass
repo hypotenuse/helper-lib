@@ -1,0 +1,133 @@
+	
+.section-contact
+	height: 100vh
+	min-height: 850px
+	overflow: hidden
+	// Remove margin collapsing
+	padding: 1px
+	background-color: #efefef
+	background-image: url(/graphics/ui/overlay.png)
+	+box-shadow(0, 1px, 1px, 0, rgba(0, 0, 0, 0.085), inset)
+
+	.wrapper
+		position: relative
+		text-align: center
+		top: 50%
+		margin-top: -285px
+
+	.section-name
+		padding: 0
+		line-height: 1.7em
+		color: $section-contact-section-name-color
+		font: $section-contact-section-name-font-size  $section-contact-section-name-family
+
+	.section-content
+		padding: 0 50px
+		margin-bottom: 50px
+		color: $section-contact-section-content-color
+		font: $section-contact-section-content-font-size  $section-contact-section-content-family
+		line-height: 1.86em
+
+	.section-name,
+	.section-content
+		font-weight: 300
+
+	form
+		+noselect
+
+	.input-wrapper
+
+		margin: 25px 0
+
+		&:nth-child(1),
+		&:nth-child(2)
+			height: 45px
+
+		&:nth-child(3)
+			height: 145px
+
+		label
+			height: inherit
+			cursor: pointer
+			display: none
+
+		.icon-wrapper
+			position: relative
+			width: 50px
+			height: inherit
+			@extend %inline-block
+			vertical-align: top
+			+opacity(.9)
+			+border-radius-separate(3px, 0, 3px, 0)
+
+			&:after,
+			&:before 
+				content: ''
+				@extend %inline-block
+				white-space: nowrap
+				width: 0
+				height: 100%
+				vertical-align: middle
+
+			&.user-color
+				background-color: transparent
+
+			&.envelope-color
+				background-color: transparent
+			
+			&.pencil-color
+				background-color: transparent
+
+		input[type=text],
+		input[type=submit],
+		textarea
+			width: 50%
+			min-width: 320px
+			padding: 5px 12px
+			margin-left: -4px
+			vertical-align: top
+			+box-sizing
+			border: 0
+			border: 2px solid transparent
+			border-bottom: 2px solid lightgrey
+			background-color: transparent
+			outline: none
+			font-size: 16px
+			font-family: 'Open sans', sans-serif
+			//background-color: transparent
+			+transition(all .7s cubic-bezier(0.19, 1, 0.22, 1) 0ms)
+
+			&:not([type=submit]):focus
+				border: 2px solid #2099d5
+
+		input[type=submit]
+			width: 50%
+			margin-left: 0
+			margin-right: 0
+			border: none
+			+border-radius(4px)
+			padding: 10px
+			background-color: white
+			+transition(background-color 150ms ease 0ms)
+			&:hover
+				background-color: #fafafa
+
+		textarea
+			height: inherit
+			resize: none
+			padding: 15px 12px
+
+		input[type=text]
+			height: inherit
+
+		i
+			vertical-align: middle
+			font-size: 18px
+			color: grey
+
+	.button-box
+		width: 50%
+		min-width: 320px
+
+		//45
+		//145

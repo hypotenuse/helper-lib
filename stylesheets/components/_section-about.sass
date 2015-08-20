@@ -1,0 +1,80 @@
+
+.section-about
+	height: 100vh
+	min-height: 850px
+	overflow: hidden
+	// Remove margin collapsing
+	padding: 1px
+	background-image: url(/graphics/ui/overlay.png)
+	background-color: #ecf1f1
+	background-position: 50% 50%
+	+box-shadow(0, 1px, 1px, 0, rgba(0, 0, 0, 0.085), inset)
+
+	.wrapper
+		position: relative
+		text-align: center
+		top: 50%
+		margin-top: -390px //-275px
+
+	.section-name
+		padding: 0
+		color: $section-about-section-name-color
+		font: $section-about-section-name-font-size  $section-about-section-name-family
+		line-height: 1.7em
+
+	.section-descr
+		margin-bottom: 50px
+		color: $section-about-section-descr-color
+		font: $section-about-section-descr-font-size  $section-about-section-descr-family
+		line-height: 1.86em	
+
+	.section-content
+		width: 50%
+		min-width: 320px
+		margin: 0 auto
+		line-height: 1.76em
+
+	.item-header
+		position: relative
+		padding: 10px
+		cursor: pointer
+		border-top: 1px solid rgba(220,231,235,1)
+		font: $section-about-item-header-font-size  $section-about-item-header-family
+		color: $section-about-item-header-color
+
+		i, b
+			color: rgb(122, 122, 122)
+		
+		&:hover i,
+		&:hover b,
+		&.current i,
+		&.current b
+			color: rgba(8, 8, 8, .8)
+		
+		&:hover, 
+		&.current
+			//background-color: #fff
+
+		i
+			position: absolute
+			right: 15px
+			top: 50%
+			margin-top: -10px
+			font-size: 22px
+
+	.item-text
+		padding: 20px 15px
+		display: none
+		font: $section-about-item-text-font-size  $section-about-item-text-family
+		color: $section-about-item-text-color
+		line-height: 24px
+
+		&.current
+			display: block
+
+	.section-name,
+	.section-content,
+	.section-descr,
+	.item-header,
+	.item-text
+		font-weight: 300

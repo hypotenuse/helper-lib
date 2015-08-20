@@ -1,0 +1,264 @@
+			<!-- Section: menu -->
+			<div class="menu" id="menu">
+				<div class="menu-header">
+					<div class="userpic">
+					</div>
+					<div class="userinfo">
+						<div class="name">{{i18n.name}}</div>
+						<div class="undername">{{i18n.undername}}</div>
+					</div>
+					<div class="menu-toggle" id="menu-toggle">
+						≡
+					</div>
+				</div>
+				<div class="menu-navigation">
+					<ul>
+						<li class="nav-item" id="nav-intro">
+							<div class="item-icon">
+								<i class="fa fa-home fa-2x">
+								</i>
+							</div>
+							<div class="item-name">{{ i18n.itemName1 }}</div>
+						</li>
+						<li class="nav-item" id="nav-portfolio">
+							<div class="item-icon">
+								<i class="fa fa-th fa-2x">
+								</i>
+							</div>
+							<div class="item-name">{{ i18n.itemName2 }}</div>
+						</li>
+						<li class="nav-item" id="nav-about">
+							<div class="item-icon">
+								<i class="fa fa-user fa-2x">
+								</i>
+							</div>
+							<div class="item-name">{{ i18n.itemName3 }}</div>
+						</li>
+						<li class="nav-item" id="nav-contact">
+							<div class="item-icon">
+								<i class="fa fa-envelope fa-2x">
+								</i>
+							</div>
+							<div class="item-name">{{ i18n.itemName4 }}</div>
+						</li>
+					</ul>
+				</div>
+				<div class="menu-footer">
+					<div class="social">
+						<a href="http://vk.com/0x000f" name="vk" target="_blank">
+							<i class="fa fa-vk">
+							</i>
+						</a>
+					</div>
+					<div class="social">
+						<a href="https://twitter.com" name="twitter" target="_blank">
+							<i class="fa fa-twitter">
+							</i>
+						</a>
+					</div>
+					<div class="social">
+						<a href="https://www.facebook.com/pankov.ivan" name="facebook" target="_blank">
+							<i class="fa fa-facebook">
+							</i>
+						</a>
+					</div>
+					<div class="social">
+						<a href="https://github.com/hypotenuse" name="github" target="_blank">
+							<i class="fa fa-github">
+							</i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- Section: content -->
+			<div class="content" id="content">
+				<section class="section-intro" id="section-intro">
+					<div class="wrapper">
+						<h1 class="section-name">
+							{{ i18n.introWelcome }}
+						</h1>
+						<div class="section-content">
+							<div class="able-to" data-go-section="2">
+								{{ i18n.introAbleTo1 }}
+							</div>
+							<div class="able-to" data-go-section="3">
+								{{ i18n.introAbleTo2 }}
+							</div>
+							<div class="able-to" data-go-section="4">
+								{{ i18n.introAbleTo3 }}
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section-portfolio" id="section-portfolio">
+					<div class="wrapper">
+						<h1 class="section-name">
+							{{ i18n.sectionPortfolioName }}
+						</h1>
+						<h4 class="section-content">
+							{{ i18n.sectionPortfolioContent }}
+						</h4>
+
+						
+						<div class="items-list-wrapper">
+							<div class="list-manip">
+								<div class="larrow" id="larrow-1">t</div>
+								<div class="rarrow" id="rarrow-1">u</div>
+								<div class="items-list-name">{{ i18n.firstListName }}</div>
+							</div>
+							<div class="items-list">
+								<div class="items-wrapper items-wrapper-1" id="items-wrapper-1">
+								</div>
+							</div>
+						</div>
+						<div class="items-list-wrapper">
+							<div class="list-manip">
+								<div class="larrow" id="larrow-2">t</div>
+								<div class="rarrow" id="rarrow-2">u</div>
+								<div class="items-list-name">{{ i18n.secondListName }}</div>
+							</div>
+							<div class="items-list">
+								<div class="items-wrapper items-wrapper-2" id="items-wrapper-2">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section-about" id="section-about">
+					<div class="wrapper">
+						<h1 class="section-name">
+							{{ i18n.sectionAboutName }}
+						</h1>
+						<div class="section-descr">
+							{{ i18n.sectionAboutContent }}
+						</div>
+						<div class="section-content">
+							<div class="item-wrapper">
+								<div class="item-header">
+									<i class="fa fa-angle-down">
+									</i>
+									<b>
+										{{ i18n.sectionAboutHeaderName1 }}
+									</b>
+								</div>
+								<div class="item-text">
+									{{ i18n.sectionAboutHeaderText1 }}
+								</div>
+							</div>
+
+							<div class="item-wrapper">
+								<div class="item-header">
+									<i class="fa fa-angle-down">
+									</i>
+									<b>
+										{{ i18n.sectionAboutHeaderName2 }}
+									</b>
+								</div>
+								<div class="item-text">
+									{{ i18n.sectionAboutHeaderText2 }}
+								</div>
+							</div>
+							
+							<div class="item-wrapper">
+								<div class="item-header">
+									<i class="fa fa-angle-down">
+									</i>
+									<b>
+										{{ i18n.sectionAboutHeaderName3 }}
+									</b>
+								</div>
+								<div class="item-text">
+									{{ i18n.sectionAboutHeaderText3 }}
+								</div>
+							</div>
+							
+							<div class="item-wrapper">
+								<div class="item-header">
+									<i class="fa fa-angle-down">
+									</i>
+									<b>
+										{{ i18n.sectionAboutHeaderName4 }}
+									</b>
+								</div>
+								<div class="item-text">
+									{{ i18n.sectionAboutHeaderText4 }}
+								</div>
+							</div>
+
+							<div class="item-wrapper">
+								<div class="item-header">
+									<i class="fa fa-angle-down">
+									</i>
+									<b>
+										{{ i18n.sectionAboutHeaderName5 }}
+									</b>
+								</div>
+								<div class="item-text">
+									{{ i18n.sectionAboutHeaderText5 }}
+								</div>
+							</div>
+
+							<div class="item-wrapper">
+								<div class="item-header">
+									<i class="fa fa-angle-down">
+									</i>
+									<b>
+										{{ i18n.sectionAboutHeaderName6 }}
+									</b>
+								</div>
+								<div class="item-text">
+									{{ i18n.sectionAboutHeaderText6 }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section-contact" id="section-contact">
+					<div class="wrapper">
+						<h1 class="section-name">
+							{{ i18n.sectionContactName }}
+						</h1>
+						<h4 class="section-content">
+							{{ i18n.sectionContactContent }}
+						</h4>
+						<!-- formspree.io: limit: 1000 submissions per email for each month -->
+						<form name="formspree-form" action="//formspree.io/ipankov64@gmail.com" method="POST">
+							<div class="input-wrapper">
+								<label for="username">
+									<div class="icon-wrapper user-color">
+										<i class="fa fa-user">
+										</i>
+									</div>
+								</label>
+								<input type="text" name="username" id="username" placeholder="{{ i18n.usernamePlaceholderText }}" />
+							</div>
+							<div class="input-wrapper">
+								<label for="useremail">
+									<div class="icon-wrapper envelope-color">
+										<i class="fa fa-envelope-o">
+										</i>
+									</div>
+								</label>
+								<input type="text" name="useremail" id="useremail" placeholder="{{ i18n.useremailPlaceholderText }}" />
+							</div>
+							<div class="input-wrapper">
+								<label for="usertext">
+									<div class="icon-wrapper pencil-color">
+										<i class="fa fa-pencil-square-o">
+										</i>
+									</div>
+								</label>
+								<textarea name="usertext" id="usertext" placeholder="{{ i18n.usertextPlaceholderText }}"></textarea>
+							</div>
+							<div class="input-wrapper">
+								<input type="submit" value="{{ i18n.submitButtonText }}" />
+							</div>
+							<input type="hidden" name="_next" value="#" />
+						</form>
+					</div>
+				</section>
+				<!-- Section: footer -->
+				<footer>
+					<a href="/" target="_blank">ivvy.me</a> {{ i18n.copy }}
+				</footer>
+			</div>

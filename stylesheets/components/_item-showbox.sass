@@ -1,0 +1,128 @@
+.item-showbox
+
+	position: fixed
+	z-index: 999
+	width: 100%
+	height: 100%
+	overflow-y: scroll
+	visibility: hidden
+	+opacity(0)
+
+	& + .shbox-background
+		position: fixed
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		background-color: rgb(25, 25, 25)
+		z-index: 998
+		visibility: hidden
+		+opacity(0)
+
+	&.show + .shbox-background
+		visibility: visible
+		+opacity(.7)
+
+	&.show
+		visibility: visible
+		+opacity(1)
+
+	.shbox-content-wrap
+		position: relative
+		width: 600px
+		margin: 40px auto
+		border-bottom: 150px solid transparent
+		z-index: 2
+
+	.shbox-content
+
+		width: inherit
+		background-color: white
+
+		.shbox-revision-date
+			font: 12px 'Open Sans', sans-serif
+
+		.shbox-link
+			margin: 14px 0
+
+		.shbox-link a
+			text-decoration: none
+			color: grey
+
+			&:hover
+				color: black
+
+		.shbox-item-name,
+		.shbox-item-text,
+		.shbox-item-links
+			font: 14px 'Open Sans', sans-serif
+
+		.shbox-item-name
+			.shbox-close
+				position: absolute
+				display: block
+				top: 26px
+				right: 25px
+				font-size: 19px
+				color: #adadad
+				cursor: pointer
+
+				&:hover
+					color: #979797
+
+		.shbox-item-text
+			padding: 50px 40px
+			font-size: 13px
+
+		.shbox-item-name,
+		.shbox-item-links
+			background-color: #EEE
+			padding: 25px 40px
+		
+		.shbox-item-image
+			width: 600px
+			height: 250px
+			background-size: 100% auto
+			background-repeat: no-repeat
+			background-position: 50% 50%
+
+	.item-next,
+	.item-prev
+		position: absolute
+		width: 90px
+		top: 0
+		bottom: 0
+		z-index: 3
+		cursor: pointer
+		+noselect
+		+transition(background-color 170ms ease 0ms)
+
+		&:hover
+			background-color: rgba(25, 25, 25, .25)
+
+		&:hover .shbox-arrow-left,
+		&:hover .shbox-arrow-right
+			+opacity(1)
+
+	.item-prev
+		left: -90px
+
+	.item-next
+		right: -90px
+
+	.item-prev .shbox-arrow-left,
+	.item-next .shbox-arrow-right
+		width: 17px
+		height: 17px
+		position: fixed
+		top: 50%
+		left: auto
+		margin-top: -8.5px
+		margin-left: 45px - 8.5px
+		background-image: url(http://vk.com/images/photonav.gif?1)
+		background-repeat: no-repeat
+		+opacity(.4)
+		+transition(all 170ms ease 0ms)
+
+	.item-next .shbox-arrow-right
+		background-position: 0 -95px
