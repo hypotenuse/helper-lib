@@ -23,10 +23,14 @@
 		line-height: 1.7em
 
 	.section-descr
+		width: 50%
+		min-width: 320px
+		margin-left: auto
+		margin-right: auto
 		margin-bottom: 50px
 		color: $section-about-section-descr-color
 		font: $section-about-section-descr-font-size  $section-about-section-descr-family
-		line-height: 1.86em	
+		line-height: 1.86em
 
 	.section-content
 		width: 50%
@@ -78,3 +82,38 @@
 	.item-header,
 	.item-text
 		font-weight: 300
+
+// Responsive Part
++media(640px)
+
+	.section-about
+		min-height: 0
+		height: auto
+		padding: 40px 1px 65px
+		border-top: 1px solid lightgrey
+		+box-shadow(none)
+
+		.wrapper
+			position: static
+			top: auto
+			margin-top: 0
+
+		.section-name
+			font-size: 24px
+		
+		.section-descr
+			font-size: 14px
+			padding: 0 50px
+			min-width: 0
+			width: auto
+
+		.item-header
+			font-size: 12px
+			text-transform: uppercase
+
+		.item-header i
+			display: none
+
+		.item-text
+			font-size: 13px
+			padding: 20px 40px

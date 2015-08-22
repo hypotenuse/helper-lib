@@ -1,81 +1,105 @@
 ;(function(_) {
 	
-	var updatePosition = function(itemsWrapper, position) {
-		// Use translate in order to achieve smoother animation
-		var vendors = [
-			'webkitTransform', 'MozTransform', 'msTransform', 'OTransform', 'transform'
-		];
-		for (var v = 0; v < vendors.length; ++v) {
-			itemsWrapper.style[vendors[v]] = 'translateX( ' + position  + 'px)';
-		}
+	function GS(itemsWrapper, itemsListWrapper, leftArrow, rightArrow, itemsCount, showCount) {
+		this._itemsWrapper = itemsWrapper;
+		this._itemsListWrapper = itemsListWrapper;
+		this._leftArrow = leftArrow;
+		this._rightArrow = rightArrow;
+		this._itemsCount = itemsCount;
+		this._showCount = showCount;
+		this._itemsRR = this._itemsCount - this._showCount;
+		this._itemsRL = 0;
+		this._position = 0;
+		this._itemWidth = 205;
 	}
 
-	,gallerize = function(itemsWrapper, leftArrow, rightArrow, itemsCount, showCount, itemWidth) {
-			
-		var itemsRL = 0
-		   ,itemsRR = itemsCount - showCount
-		   ,position = 0;
+	GS.prototype = {
+		constructor: GS,
 
-		if (itemsCount > showCount) {
-			leftArrow.onclick = rightArrow.onclick = function(Event) {
-					
-				var target = common.event.getTarget(Event);
-
-				// Direction Right
-				if (target.id.charAt(0) == 'r') {
-					// Show first `showCount` items
-					if (itemsRR == 0) {
-						position = itemsRL = 0;
-						itemsRR = itemsCount - showCount;
-					}
-					else {
-						if (itemsRR < showCount) {
-							position = position - itemsRR * itemWidth;
-							itemsRL = itemsRL + itemsRR;
-							itemsRR = 0;
-						}
-						else {
-							position = position - showCount * itemWidth;
-							itemsRL = itemsRL + showCount;
-							itemsRR = itemsRR - showCount;
-						}
-					}
-				}
-				// Direction Left
-				else {
-					// Show last `showCount` items
-					if (itemsRL == 0) {
-						position = position - itemsRR * itemWidth;
-						itemsRL = itemsRL + itemsRR;
-						itemsRR = 0;
-					}
-					else {
-						if (itemsRL < showCount) {
-							position = position + itemsRL * itemWidth;
-							itemsRR = itemsRR + itemsRL;
-							itemsRL = 0;
-						}
-						else {
-							position = position + showCount * itemWidth;
-							itemsRL = itemsRL - showCount;
-							itemsRR = itemsRR + showCount;
-						}
-					}
-				}
-				updatePosition(itemsWrapper, position);
+		updatePosition: function(pos) {
+			// Use translate in order to achieve smoother animation
+			var vendors = [
+				'webkitTransform', 'MozTransform', 'msTransform', 'OTransform', 'transform'
+			];
+			for (var v = 0; v < vendors.length; ++v) {
+				this._itemsWrapper.style[vendors[v]] = 'translateX( ' + pos  + 'px)';
 			}
+			return this;
+		},
+			
+		initEvents: function() {
+			var self = this;
+			if (self._itemsCount > self._showCount) {
+				self._leftArrow.onclick = self._rightArrow.onclick = function(Event) {
+					var target = common.event.getTarget(Event);
+					if (target.id.charAt(0) == 'r') {
+						if (self._itemsRR == 0) {
+							self._position = self._itemsRL = 0;
+							self._itemsRR = self._itemsCount - self._showCount;
+						}
+						else {
+							if (self._itemsRR < self._showCount) {
+								self._position = self._position - self._itemsRR * self._itemWidth;
+								self._itemsRL = self._itemsRL + self._itemsRR;
+								self._itemsRR = 0;
+							}
+							else {
+								self._position = self._position - self._showCount * self._itemWidth;
+								self._itemsRL = self._itemsRL + self._showCount;
+								self._itemsRR = self._itemsRR - self._showCount;
+							}
+						}
+					}
+					else {
+						if (self._itemsRL == 0) {
+							self._position = self._position - self._itemsRR * self._itemWidth;
+							self._itemsRL = self._itemsRL + self._itemsRR;
+							self._itemsRR = 0;
+						}
+						else {
+							if (self._itemsRL < self._showCount) {
+								self._position = self._position + self._itemsRL * self._itemWidth;
+								self._itemsRR = self._itemsRR + self._itemsRL;
+								self._itemsRL = 0;
+							}
+							else {
+								self._position = self._position + self._showCount * self._itemWidth;
+								self._itemsRL = self._itemsRL - self._showCount;
+								self._itemsRR = self._itemsRR + self._showCount;
+							}
+						}
+					}
+					self.updatePosition(self._position);
+				}
+			}
+			return this;
+		},
+			
+		prepareWrappers: function() {
+			this._itemsWrapper.style.width = this._itemWidth * this._itemsCount + 'px';
+			this._itemsListWrapper.style.width = this._itemWidth * this._showCount + 'px';
+			return this;
+		},
+
+		changeShowCount: function(count) {
+			this._showCount = count;
+			this._itemsRL = this._position = 0;
+			this._itemsRR = this._itemsCount - this._showCount;
+			this.prepareWrappers();
+			this.updatePosition(this._position);
+			return this;
 		}
 	}
 
-	,escCode = 27
+	var escCode = 27
+
 	,documentElement = _.document.documentElement
 	,documentBody = _.document.body || _.document.getElementsByTagName('body')[0]
-	,showCount = 3
-	,itemWidth = 205 //+ 5 * 2 // + 3 * 2
-
+	
 	,itemData = i18n._worksData
 	,itemsWrapper = [ common.dom.get('items-wrapper-1'), common.dom.get('items-wrapper-2') ]
 	,itemIndexesLast
+
 	,shboxContentWrap = common.dom.get('shbox-content-wrap')
 	,shboxArrowLeft = common.dom.get('shbox-arrow-left')
 	,shboxArrowRight = common.dom.get('shbox-arrow-right')
@@ -83,6 +107,9 @@
 	,itemShowBox = common.dom.get('item-showbox')
 	,shboxItemPrev = common.dom.get('item-prev')
 	,shboxItemNext =  common.dom.get('item-next')
+
+	,gs_1 = new GS(itemsWrapper[0], itemsWrapper[0].parentNode.parentNode, common.dom.get('larrow-1'), common.dom.get('rarrow-1'), itemData[0].length, 3).prepareWrappers().initEvents()
+	,gs_2 = new GS(itemsWrapper[1], itemsWrapper[1].parentNode.parentNode, common.dom.get('larrow-2'), common.dom.get('rarrow-2'), itemData[1].length, 3).prepareWrappers().initEvents()
 
 	,sw = (function() {
 		var boxA = document.createElement('div')
@@ -228,13 +255,30 @@ shboxItemPrev.onclick = shboxItemNext.onclick = function(Event) {
 }
 
 _.onresize = function(Event) {
-	if (shboxContentWrap.clientHeight > (_.innerHeight || documentElement.clientHeight || documentBody.clientHeight)) {
+	
+	var vw = _.innerWidth || documentElement.clientWidth || documentBody.clientWidth,
+			vh = _.innerHeight || documentElement.clientHeight || documentBody.clientHeight;
+	
+	if (shboxContentWrap.clientHeight > vh) {
 		cssText(shboxArrowRight, 'position:fixed');
 		cssText(shboxArrowLeft, 'position:fixed');
 	}
 	else {
 		cssText(shboxArrowRight, 'position:absolute');
 		cssText(shboxArrowLeft, 'position:absolute');
+	}
+
+	if (vw > 930) {
+		gs_1.changeShowCount(3);
+		gs_2.changeShowCount(3);
+	}
+	else if (930 >= vw && vw >= 420) {
+		gs_1.changeShowCount(2);
+		gs_2.changeShowCount(2);
+	}
+	else if (420 >= vw) {
+		gs_1.changeShowCount(1);
+		gs_2.changeShowCount(1);
 	}
 }
 
@@ -254,10 +298,6 @@ for (var j = 0; j < itemsWrapper.length; ++j) {
 	}
 }
 
-gallerize(itemsWrapper[0], common.dom.get('larrow-1'), common.dom.get('rarrow-1'), itemData[0].length, showCount, itemWidth);
-gallerize(itemsWrapper[1], common.dom.get('larrow-2'), common.dom.get('rarrow-2'), itemData[1].length, showCount, itemWidth);
-
 _.onresize();
 
 })(window);
-

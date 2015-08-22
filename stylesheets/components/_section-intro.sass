@@ -45,3 +45,40 @@
 		.section-content
 			font-weight: 300
 			+text-shadow(0px, 0px, 5px, rgba(55, 55, 55, .2))
+
+		.social-links
+			display: none
+
+		.social
+			@extend %inline-block
+			vertical-align: middle
+			text-align: center
+
+			&:not(:last-child)
+				margin-right: 30px
+
+		.fa.fa-vk,
+		.fa.fa-facebook,
+		.fa.fa-github,
+		.fa.fa-twitter
+			margin-top: 10px
+			font-size: 35px
+			color: rgb(114, 114, 114)
+
+// Responsive Part
++media(640px)
+
+	.section-intro
+		min-height: 0
+		height: 480px
+
+		.wrapper .section-content
+			font-size: 14px
+			text-transform: uppercase
+			min-width: 0
+
+		.wrapper .section-name
+			font-size: 46.5px
+
+		.wrapper .social-links
+			display: block

@@ -21,6 +21,10 @@
 		font: $section-portfolio-section-name-font-size  $section-portfolio-section-name-family
 
 	.section-content
+		width: 50%
+		min-width: 320px
+		margin-left: auto
+		margin-right: auto
 		padding: 0 50px
 		color: $section-portfolio-section-content-color
 		font: $section-portfolio-section-content-font-size  $section-portfolio-section-content-family
@@ -32,7 +36,7 @@
 
 	.items-list-wrapper
 		position: relative
-		width: $section-portfolio-item-width-size * $section-portfolio-items-show-count
+		//width: $section-portfolio-item-width-size * $section-portfolio-items-show-count
 		height: $section-portfolio-item-height-size	 
 		margin: 70px auto
 
@@ -88,10 +92,10 @@
 		+transition(all 1.7s cubic-bezier(0.19, 1, 0.22, 1) 0s)
 
 		&.items-wrapper-1
-			width: $section-portfolio-item-width-size * $section-portfolio-items-1-count
+			//width: $section-portfolio-item-width-size * $section-portfolio-items-1-count
 		
 		&.items-wrapper-2
-			width: $section-portfolio-item-width-size * $section-portfolio-items-2-count
+			//width: $section-portfolio-item-width-size * $section-portfolio-items-2-count
 		 
 	a
 		margin: 0
@@ -174,3 +178,30 @@
 			+opacity(0.8)
 		&:hover .img-wrapper:before
 			+opacity(1.0)
+
+// Responsive Part
++media(640px)
+
+	.section-portfolio
+		min-height: 0
+		height: 840px
+
+		.section-name
+			font-size: 24px
+
+		.section-content
+			font-size: 14px
+			min-width: 0
+			width: auto
+
+		.items-list-name
+			font-size: 15px
+			line-height: 220%
+
+		.items-list-wrapper .larrow,
+		.items-list-wrapper .rarrow
+			top: 4px
+			font-size: 18px
+
+		.item p
+			font-size: 15px

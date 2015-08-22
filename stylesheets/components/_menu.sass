@@ -156,21 +156,30 @@
 // Responsive Part
 +media(640px)
 	.menu
-		width: 80px
+
+		width: 100%
+		height: 58px
+		+box-shadow(none)
 
 		& + .content
-			margin-left: 80px
+			margin-left: 0
 			
 		.menu-header
-			padding: 36px 15px
-
-		.userinfo, .userpic
-			float: none
-			margin: 0 auto
+			display: none
 
 		.userinfo
 			text-align: center
 			display: none
 
+		.menu-navigation
+			width: 330px
+			margin: 0 auto
+
 		.menu-navigation .item-name
+			display: none
+
+		.nav-item
+			+inline-block
+
+		.menu-footer
 			display: none

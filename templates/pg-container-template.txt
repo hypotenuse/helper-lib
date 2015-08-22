@@ -88,6 +88,32 @@
 								{{ i18n.introAbleTo3 }}
 							</div>
 						</div>
+						<div class="social-links">
+							<div class="social">
+								<a href="http://vk.com/0x000f" name="vk" target="_blank">
+									<i class="fa fa-vk">
+									</i>
+								</a>
+							</div>
+							<div class="social">
+								<a href="https://twitter.com" name="twitter" target="_blank">
+									<i class="fa fa-twitter">
+									</i>
+								</a>
+							</div>
+							<div class="social">
+								<a href="https://www.facebook.com/pankov.ivan" name="facebook" target="_blank">
+									<i class="fa fa-facebook">
+									</i>
+								</a>
+							</div>
+							<div class="social">
+								<a href="https://github.com/hypotenuse" name="github" target="_blank">
+									<i class="fa fa-github">
+									</i>
+								</a>
+							</div>
+						</div>
 					</div>
 				</section>
 				<section class="section-portfolio" id="section-portfolio">
@@ -99,7 +125,6 @@
 							{{ i18n.sectionPortfolioContent }}
 						</h4>
 
-						
 						<div class="items-list-wrapper">
 							<div class="list-manip">
 								<div class="larrow" id="larrow-1">t</div>

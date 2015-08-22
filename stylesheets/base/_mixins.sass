@@ -42,6 +42,11 @@
 	-o-#{$property}: #{$value}
 	#{$property}: #{$value}
 
+@mixin inline-block
+	display: -moz-inline-stack
+	display: inline-block
+	*zoom: 1
+	*display: inline
 
 @mixin background-gradient($startColor: #3C3C3C, $endColor: #999999)
 	background-color: $startColor
@@ -123,8 +128,10 @@
 	zoom:   1
 
 
-@mixin box-shadow($x: 2px, $y: 2px, $spread: 0, $blur: 5px, $color: rgba(0,0,0,.4), $inset: '')
-	@if ($inset != "")
+@mixin box-shadow($x: 2px, $y: 2px, $spread: 0, $blur: 5px, $color: rgba(0, 0, 0, .4), $inset: '')
+	@if ($x == none)
+		@include css3-prefix('box-shadow', none)
+	@else if ($inset == inset)
 		@include css3-prefix('box-shadow', $inset $x $y $spread $blur $color)
 	@else
 		@include css3-prefix('box-shadow', $x $y $spread $blur $color)

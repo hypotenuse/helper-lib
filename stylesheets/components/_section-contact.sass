@@ -22,8 +22,12 @@
 		font: $section-contact-section-name-font-size  $section-contact-section-name-family
 
 	.section-content
-		padding: 0 50px
+		width: 50%
+		min-width: 320px
+		margin-left: auto
+		margin-right: auto
 		margin-bottom: 50px
+		padding: 0 50px
 		color: $section-contact-section-content-color
 		font: $section-contact-section-content-font-size  $section-contact-section-content-family
 		line-height: 1.86em
@@ -84,7 +88,6 @@
 			width: 50%
 			min-width: 320px
 			padding: 5px 12px
-			margin-left: -4px
 			vertical-align: top
 			+box-sizing
 			border: 0
@@ -98,7 +101,7 @@
 			+transition(all .7s cubic-bezier(0.19, 1, 0.22, 1) 0ms)
 
 			&:not([type=submit]):focus
-				border: 2px solid #2099d5
+				border: 2px solid #69a1ef
 
 		input[type=submit]
 			width: 50%
@@ -107,10 +110,13 @@
 			border: none
 			+border-radius(4px)
 			padding: 10px
-			background-color: white
+			background-color: #69a1ef
+			color: #fafafa
 			+transition(background-color 150ms ease 0ms)
 			&:hover
-				background-color: #fafafa
+				background-color: cornflowerblue
+			&:active
+				background-color: #7c9cdc
 
 		textarea
 			height: inherit
@@ -129,5 +135,29 @@
 		width: 50%
 		min-width: 320px
 
-		//45
-		//145
++media(640px)
+
+	.section-contact
+		min-height: 0
+		height: auto
+		padding: 40px 0px 65px
+		+box-shadow(none)
+		border-top: 1px solid #d3d3d3
+
+		.wrapper
+			position: static
+			top: auto
+			margin-top: 0
+
+		.section-name
+			font-size: 24px
+		
+		.section-content
+			min-width: 0
+			width: auto
+			font-size: 14px
+		
+		.input-wrapper input[type=text],
+		.input-wrapper input[type=submit],
+		.input-wrapper textarea
+			font-size: 14px

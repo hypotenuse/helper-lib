@@ -50,54 +50,54 @@
 					'itemName2': 'My apps / Works',
 					'itemName3': 'About Me',
 					'itemName4': 'Contact',
-					'introWelcome': 'Ivvy.ME',
+					'introWelcome': 'hypotenuse',
 					'introAbleTo1': 'View Apps',
 					'introAbleTo2': 'Read Info',
 					'introAbleTo3': 'Send Me',
 					
 					'sectionPortfolioName': 'My apps / Works',
 					'sectionPortfolioContent': ' \
-							In this section I decided to collect a list of my applications.',
+							In this section You can view a list of apps I\'ve been developing for a certain period of time. You can view them!',
 					
 					'sectionAboutName': 'About Me',
 					'sectionAboutContent': ' \
 							Here I decided to make a Question & Answer section. \
-						<br> \
+							\
 							The section intends to answer on some key questions about me and how I \
-						<br> \
+							\
 							can assist you and your project you\'re working on.',
 
 					'sectionAboutHeaderName1': 'Personal information',
 					'sectionAboutHeaderText1': '\
 						Name:&nbsp;<b>Ivan</b> \
-						<br> \
+							\
 							Surname:&nbsp;<b>Pankov</b> \
-						<br> \
+							\
 							Internet name: <b>hypotenuse</b> \
-						<br> \
-							Age:&nbsp;<b>21</b> \
-						<br> \
+							\
+							Age:&nbsp;<b>22</b> \
+							\
 							Gender:&nbsp;<b>Male</b> \
-						<br> \
+							\
 							Occupation:&nbsp;<b>Frontend developer</b> \
-						<br> \
+							\
 							Location:&nbsp;<b>Russia, Moscow</b> \
-						<br>',
+						',
 
 					'sectionAboutHeaderName2': 'What do I know?',
 					'sectionAboutHeaderText2': ' \
 							Programming languages: <b>JS</b> \
-						<br> \
+							\
 							Preprocessors: <b>SASS, SCSS</b> \
-						<br> \
+							\
 							Frameworks/Libraries: <b>AngularJS, JQuery, Underscore / Lo-Dash. \
-						<br> \
+							\
 							Also, It\'s not too difficult to learn & use anything else \
-						<br> \
+							\
 							(library or framework). It depends on what you want to achieve.</b> \
-						<br> \
+							\
 							Other technologies: <b>CSS, HTML, JSON/XML</b> \
-						<br> \
+							\
 							Backend: <b>PHP, Node.js. (Superficial knowledge)</b>',
 
 					'sectionAboutHeaderName3': 'What about my experience?',
@@ -106,30 +106,30 @@
 					'sectionAboutHeaderName4': 'What about my education?',
 					'sectionAboutHeaderText4': ' \
 							MSIU. Faculty of Applied Mathematics and Technical Physics (2011 - 2013). \
-						<br> \
+							\
 							Moscow Engineering Physics Institute. Faculty of Cybernetics (2013 - 2014).',
 
 					'sectionAboutHeaderName5': 'What can I do for you?',
 					'sectionAboutHeaderText5': ' \
 							If you need programming: \
-						<br> \
+							\
 							I can solve any frontend task primarily using pure JS or its frameworks. \
-						<br> \
+							\
 							If you need a makeup: \
-						<br> \
+							\
 							I can do a makeup. Whether it is a LP (Landing Page) or multifunctional UI\'s. \
 					',
 
 					'sectionAboutHeaderName6': 'What should you do now?',
 					'sectionAboutHeaderText6': ' \
 							If you\'re interested in the information above You can ask me a question \
-						<br> \
+							\
 							If not it\'s OK. Probably you\'re looking for something different or something that fits your needs.',
 
 					'sectionContactName': 'Any Questions?',
 					'sectionContactContent': ' \
 							Here you able to ask me about anything. \
-						<br> \
+							\
 							Just ask. And I\'ll answer you as soon as possible',
 
 					'navButtonBoxName1': 'About Me',
@@ -285,11 +285,11 @@
 				{
 					'name': 'Ivan Пэ',
 					'undername': 'Фронтенд разработчик',
-					'itemName1': 'ivvy.me',
+					'itemName1': 'Интро',
 					'itemName2': 'Мои приложения',
 					'itemName3': 'Обо мне',
 					'itemName4': 'Написать мне',
-					'introWelcome': 'Ivvy.ME',
+					'introWelcome': 'hypotenuse',
 					'introAbleTo1': 'Посмотреть работы',
 					'introAbleTo2': 'Посмотреть информацию',
 					'introAbleTo3': 'Отправить сообщение',
@@ -297,42 +297,42 @@
 					'sectionPortfolioName': 'Мои приложения / Работы',
 					'sectionPortfolioContent': ' \
 							Здесь собран список приложений над которыми я работал (работаю). \
-						<br> \
+							\
 							Вы можете посмотреть более подробную информацию об определенном приложении.',
 					
 					'sectionAboutName': 'Обо мне',
 					'sectionAboutContent': ' \
 							Здесь собранны ответы на некоторые ключевые вопросы. \
-						<br> \
+							\
 							Я постарался выложить здесь наиболее важную информацию. \
-						<br> \
+							\
 							Возможно, если информации не достаточно, Вы можете мне написать.',
 
 					'sectionAboutHeaderName1': 'Персональная информация',
 					'sectionAboutHeaderText1': '\
 							Имя:&nbsp;<b>Ivan</b> \
-						<br> \
+							\
 							Никнейм: <b>hypotenuse</b> \
-						<br> \
-							Возраст:&nbsp;<b>21</b> \
-						<br> \
+							\
+							Возраст:&nbsp;<b>22</b> \
+							\
 							Пол:&nbsp;<b>мужской</b> \
-						<br> \
+							\
 							Род деятельности:&nbsp;<b>Фронтенд разработчик</b> \
-						<br> \
+							\
 							Место нахождения:&nbsp;<b>Россия, Москва</b> \
-						<br>',
+						',
 
 					'sectionAboutHeaderName2': 'Что я знаю и какие технологии использую?',
 					'sectionAboutHeaderText2': ' \
 							Языки: <b>Русский, Английсий, JS</b> \
-						<br> \
+							\
 							Препроцессоры: <b>SASS, SCSS</b> \
-						<br> \
+							\
 							Фреймворки/Библиотеки: <b>AngularJS, JQuery, Underscore/Lo-Dash</b> \
-						<br> \
+							\
 							Другие техноголии: <b>CSS, HTML, JSON/XML</b> \
-						<br> \
+							\
 							Бэкэнд: <b>PHP, Node.js</b>',
 
 					'sectionAboutHeaderName3': 'Опыт?',
@@ -341,32 +341,32 @@
 					'sectionAboutHeaderName4': 'Учеба?',
 					'sectionAboutHeaderText4': ' \
 							МГИУ. Факультет Прикладной математики и технической физики (2011 - 2013). \
-						<br> \
+							\
 							НИЯУ МИФИ. Факультет Кибернетики (2013 - 2014).',
 
 					'sectionAboutHeaderName5': 'Что я могу сделать для вашего проекта?',
 					'sectionAboutHeaderText5': ' \
 							Если необходимо программирование: \
-						<br> \
+							\
 							Я могу решать любые фронт-енд задачи используя JS или его фреймворки/библиотеки \
-						<br> \
+							\
 							Если необходима верстка: \
-						<br> \
+							\
 							Я могу верстать от лендингов до многофункциональных пользовательских интерфейсов. \
-						<br> \
+							\
 							При этом, верстка будет и валидной и кроссбраузерной \
 						',
 
 					'sectionAboutHeaderName6': 'Что дальше?',
 					'sectionAboutHeaderText6': ' \
 							Если Вы заинтересованны в предоставленной мною информации, можете со мной связаться. \
-						<br> \
+							\
 							Если нет, ничего страшного. Возможно, Вы заинтересованны в чем-то другом.',
 
 					'sectionContactName': 'Остались вопросы?',
 					'sectionContactContent': ' \
 							Здесь Вы можете задать вопросы. \
-						<br> \
+							\
 							Просто заполните форму. И я отвечу.',
 
 					'navButtonBoxName1': 'Обо мне',
