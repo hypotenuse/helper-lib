@@ -91,6 +91,11 @@
 			vertical-align: top
 			+box-sizing
 			border: 0
+			// http://stackoverflow.com/questions/7599533/ios-forces-rounded-corners-and-glare-on-inputs
+			// iOS forces rounded corners and glare on inputs
+			-webkit-appearance: none
+			-webkit-border-radius: 0
+			border-radius: 0
 			border: 2px solid transparent
 			border-bottom: 2px solid lightgrey
 			background-color: transparent

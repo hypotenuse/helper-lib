@@ -151,7 +151,7 @@
 						'emptyEmail': 'Oops, Your email is empty',
 						'invalidEmail': 'Oops, Your email is invalid',
 						'emptyText': 'Oops, Your message is empty',
-						'ok': 'Awesome, I\'ll get in touch as soon as possible'
+						'ok': 'Awesome! Wait for a response'
 					},
 
 					'_worksData': [
@@ -388,7 +388,7 @@
 						'emptyEmail': 'Вы должны ввести непустой email',
 						'invalidEmail': 'Неправильный email',
 						'emptyText': 'Вы должны ввести непустое сообщение',
-						'ok': 'Awesome, I\'ll get in touch as soon as possible'
+						'ok': 'Круто, ждите ответа!'
 					},
 
 					'_worksData': [
