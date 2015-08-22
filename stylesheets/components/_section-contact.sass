@@ -91,7 +91,6 @@
 			vertical-align: top
 			+box-sizing
 			border: 0
-			// http://stackoverflow.com/questions/7599533/ios-forces-rounded-corners-and-glare-on-inputs
 			// iOS forces rounded corners and glare on inputs
 			-webkit-appearance: none
 			-webkit-border-radius: 0
@@ -102,14 +101,12 @@
 			outline: none
 			font-size: 16px
 			font-family: 'Open sans', sans-serif
-			//background-color: transparent
 			+transition(all .7s cubic-bezier(0.19, 1, 0.22, 1) 0ms)
 
 			&:not([type=submit]):focus
 				border: 2px solid #69a1ef
 
 		input[type=submit]
-			width: 50%
 			margin-left: 0
 			margin-right: 0
 			border: none
@@ -165,4 +162,5 @@
 		.input-wrapper input[type=text],
 		.input-wrapper input[type=submit],
 		.input-wrapper textarea
+			width: 90%
 			font-size: 14px
