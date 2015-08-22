@@ -63,3 +63,16 @@
 	&.show .popup-content
 		+transform(scale3d(1, 1, 1))
 		+opacity(1)
+
++media(640px)
+
+	.popup-box
+
+		.popup-content
+			width: 300px
+			height: 215px
+			margin-top: -215px / 2
+			margin-left: -300px / 2
+	
+		.status-text
+			margin: 15px 0 25px
