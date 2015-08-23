@@ -124,28 +124,15 @@
 						<h4 class="section-content">
 							{{ i18n.sectionPortfolioContent }}
 						</h4>
-
-						<div class="items-list-wrapper">
-							<div class="list-manip">
-								<div class="larrow" id="larrow-1">t</div>
-								<div class="rarrow" id="rarrow-1">u</div>
-								<div class="items-list-name">{{ i18n.firstListName }}</div>
-							</div>
-							<div class="items-list">
-								<div class="items-wrapper items-wrapper-1" id="items-wrapper-1">
-								</div>
-							</div>
+						<p class="item-title">
+							{{ i18n.firstListName }}
+						</p>
+						<div class="items-list" id="items-list-1">
 						</div>
-						<div class="items-list-wrapper">
-							<div class="list-manip">
-								<div class="larrow" id="larrow-2">t</div>
-								<div class="rarrow" id="rarrow-2">u</div>
-								<div class="items-list-name">{{ i18n.secondListName }}</div>
-							</div>
-							<div class="items-list">
-								<div class="items-wrapper items-wrapper-2" id="items-wrapper-2">
-								</div>
-							</div>
+						<p class="item-title">
+							{{ i18n.secondListName }}
+						</p>
+						<div class="items-list" id="items-list-2">
 						</div>
 					</div>
 				</section>

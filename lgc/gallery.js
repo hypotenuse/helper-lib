@@ -1,5 +1,5 @@
 ;(function(_) {
-	
+	/*
 	function GS(itemsWrapper, itemsListWrapper, leftArrow, rightArrow, itemsCount, showCount) {
 		this._itemsWrapper = itemsWrapper;
 		this._itemsListWrapper = itemsListWrapper;
@@ -90,14 +90,14 @@
 			return this;
 		}
 	}
-
+	*/
 	var escCode = 27
 
 	,documentElement = _.document.documentElement
 	,documentBody = _.document.body || _.document.getElementsByTagName('body')[0]
 	
 	,itemData = i18n._worksData
-	,itemsWrapper = [ common.dom.get('items-wrapper-1'), common.dom.get('items-wrapper-2') ]
+	,itemsList = [ common.dom.get('items-list-1'), common.dom.get('items-list-2') ]
 	,itemIndexesLast
 
 	,shboxContentWrap = common.dom.get('shbox-content-wrap')
@@ -108,8 +108,8 @@
 	,shboxItemPrev = common.dom.get('item-prev')
 	,shboxItemNext =  common.dom.get('item-next')
 
-	,gs_1 = new GS(itemsWrapper[0], itemsWrapper[0].parentNode.parentNode, common.dom.get('larrow-1'), common.dom.get('rarrow-1'), itemData[0].length, 3).prepareWrappers().initEvents()
-	,gs_2 = new GS(itemsWrapper[1], itemsWrapper[1].parentNode.parentNode, common.dom.get('larrow-2'), common.dom.get('rarrow-2'), itemData[1].length, 3).prepareWrappers().initEvents()
+	//,gs_1 = new GS(itemsWrapper[0], itemsWrapper[0].parentNode.parentNode, common.dom.get('larrow-1'), common.dom.get('rarrow-1'), itemData[0].length, 3).prepareWrappers().initEvents()
+	//,gs_2 = new GS(itemsWrapper[1], itemsWrapper[1].parentNode.parentNode, common.dom.get('larrow-2'), common.dom.get('rarrow-2'), itemData[1].length, 3).prepareWrappers().initEvents()
 
 	,sw = (function() {
 		var boxA = document.createElement('div')
@@ -153,7 +153,7 @@
 
 	,shbox = function(itemIndexX, itemIndexY) {
 		
-		var data = itemData[itemIndexX][itemIndexY];
+		var data = itemData[itemIndexX][itemIndexY], shboxLinks;
 
 		common.dom.html(common.dom.getByClassName(itemShowBox, 'shbox-title')[0], data.title);
 		common.dom.html(common.dom.getByClassName(itemShowBox, 'shbox-revision-date')[0], data.revisionDate);
@@ -267,7 +267,7 @@ _.onresize = function(Event) {
 		cssText(shboxArrowRight, 'position:absolute');
 		cssText(shboxArrowLeft, 'position:absolute');
 	}
-
+	/*
 	if (vw > 930) {
 		gs_1.changeShowCount(3);
 		gs_2.changeShowCount(3);
@@ -280,11 +280,12 @@ _.onresize = function(Event) {
 		gs_1.changeShowCount(1);
 		gs_2.changeShowCount(1);
 	}
+	*/
 }
 
-for (var j = 0; j < itemsWrapper.length; ++j) {
+for (var j = 0; j < itemsList.length; ++j) {
 	for (var p = 0; p < itemData[j].length; ++p) {
-		common.dom.insert('html', 'be', itemsWrapper[j], formItem(
+		common.dom.insert('html', 'be', itemsList[j], formItem(
 			j + '-' + p
 		 ,itemData[j][p].src
 		 ,itemData[j][p].name
@@ -292,8 +293,8 @@ for (var j = 0; j < itemsWrapper.length; ++j) {
 	}
 }
 
-for (var j = 0; j < itemsWrapper.length; ++j) {
-	for (var items = itemsWrapper[j].getElementsByTagName('a'), k = 0; k < items.length; ++k) {
+for (var j = 0; j < itemsList.length; ++j) {
+	for (var items = itemsList[j].getElementsByTagName('a'), k = 0; k < items.length; ++k) {
 		items[k].onclick = itemClick;
 	}
 }
