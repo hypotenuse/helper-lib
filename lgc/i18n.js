@@ -160,9 +160,9 @@
 							{
 								name: 'Dpbox'
 							 ,title: 'Date picker'
-							 ,revisionDate: 'Last revision: 21 March 2014'
+							 ,revisionDate: 'Last revision: 21 March 7048'
 							 ,src: '/graphics/imgentities/dpjs.png'
-							 ,text: 'A lightweight date picker'
+							 ,text: 'Dpbox.JS is a lightweight date picker'
 							 ,links: [
 							 		{
 							 			url: '//github.com/hypotenuse'
@@ -173,9 +173,9 @@
 						 ,{
 						 		name: 'Tabber'
 						 	 ,title: 'Tabs communication'
-						 	 ,revisionDate: 'Last revision: 21 March 2014'
+						 	 ,revisionDate: 'Last revision: 99 September 2042'
 						 	 ,src: '/graphics/imgentities/dpjs.png'
-						 	 ,text: 'tabber.js is a way to communicate among several opened tabs'
+						 	 ,text: 'Tabber.JS is a way to communicate among several opened tabs'
 							 ,links: [
 									{
 										url: '//github.com/hypotenuse'
@@ -184,11 +184,12 @@
 								]
 						 	}
 						 ,{
-						 		name: 'Tetris Game'
-						 	 ,title: 'JS Version of Tetris'
-						 	 ,revisionDate: 'Last revision: 21 March 2014'
+						 		name: 'Tetris'
+						 	 ,title: 'JS Version of Tetris Game'
+						 	 ,revisionDate: 'Last revision: 7 May 2071'
 						 	 ,src: '/graphics/imgentities/dpjs.png'
-							 ,text: 'JS port of a well known classic game Tetris. <br>Tetris is a Soviet tile-matching puzzle video game originally designed and programmed by Alexey Pajitnov on June 6, 1984.'
+							 ,text: 'This is a JS port of a well-known classic game Tetris. \
+							 				 Tetris is a Soviet tile-matching puzzle video game originally designed and programmed by Alexey Pajitnov on June 6, 1984.'
 							 ,links: [
 							 		{
 							 			url: '//github.com/hypotenuse'
@@ -197,11 +198,23 @@
 								]
 						 	}
 						 ,{
-						 		name: 'Snake Game'
-						 	 ,title: 'JS Version of Snake'
-						 	 ,revisionDate: 'Last revision: 21 March 2014'
+						 		name: 'Snake'
+						 	 ,title: 'JS Version of Snake Game'
+						 	 ,revisionDate: 'Last revision: 21 August 4064'
 						 	 ,src: '/graphics/imgentities/dpjs.png'
-						 	 ,text: 'JS port of a well known classic game Snake. <br>Snake is a general name for video games where the player maneuvers a line which grows in length, with the line itself being a primary obstacle.'
+						 	 ,text: '<p> \
+						 	 						You see a JS port of a well-known classic game Snake. \
+						 	 						Snake is a general name for video games where the player maneuvers a line which grows in length, with the line itself being a primary obstacle. \
+						 	 				 </p> \
+						 	 				 <p> \
+						 	 				 		By the way, have you ever tried to develop your own version of this game? The game may be quite addictive. \
+						 	 				 		I got infected by it and thought that if I want to get rid of the infection I <s>should</s> must to develop my own version. \
+						 	 				 		Here we go! What do you see in front of your eyes? Right! My own version of the game (JS Port to be precise). \
+						 	 				 </p> \
+						 	 				 <p> \
+						 	 				 		The game may be a bit buggy, anyways just in case if you\'ll notice any bugs, please let me know \
+						 	 				 		(You can add a pull request in the repository or just create a new issue there) \
+						 	 				 </p>'
 							 ,links: [
 							 		{
 							 			url: '//github.com/hypotenuse'
