@@ -23,8 +23,8 @@
 		position: absolute
 		top: 50%
 		left: 50%
-		margin-top: -79px
-		margin-left: -212.5px
+		margin-top: -158px / 2
+		margin-left: -316px / 2
 		padding: 50px
 		padding-bottom: 90px
 		background-color: rgba(255, 255, 255, .85)
@@ -47,7 +47,6 @@
 			text-transform: uppercase
 
 		.buttons
-			border-top: 1px solid #DFDFDF
 			position: absolute
 			left: 0
 			right: 0
@@ -67,15 +66,13 @@
 
 			#langbox-ru
 				float: right
-				border-left: 1px solid #CFCFCF
 
 			#langbox-en,
 			#langbox-ru
 				outline: none
-				&:hover
-					background-color: #eaeaea
-				&:active	
-					background-color: #e5e5e5
+				&:hover, &:active
+					background-color: #69a1ef
+					color: white
 
 	.lgbox-background, 
 	.lgbox-content
@@ -92,3 +89,7 @@
 		visibility: visible
 		+transform(scale3d(1, 1, 1))
 		+opacity(1)
+
++media(640px)
+	.lang-box.show .lgbox-content
+		+transform(scale3d(.948, .948, .948))
