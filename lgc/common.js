@@ -1,9 +1,11 @@
 ;(function(_) {
 	
 	var emptyBox = _.document.createElement('DIV')
-
-	,ObjectProto = Object.prototype
-	,StringProto = String.prototype
+		 ,htmlNode = _.document.documentElement
+		 ,headNode = _.document.head || _.document.getElementsByTagName('head')[0]
+		 ,bodyNode = _.document.body || _.document.getElementsByTagName('body')[0]
+		 ,ObjectProto = Object.prototype
+		 ,StringProto = String.prototype
 		
 	,owns = function(object, property) {
 		return ObjectProto.hasOwnProperty.call(object, property);
@@ -46,12 +48,19 @@
 	_.common = {
 
 		dom: {
-			
+
+			htmlNode: htmlNode,
+			headNode: headNode,
+			bodyNode: bodyNode,
+			html: htmlNode,
+			head: headNode,
+			body: bodyNode,
+
 			get: function(id) {
 				return _.document.getElementById(id);
-			}
+			},
 
-			,getByClassName: function(box, className) {
+			getByClassName: function(box, className) {
 				var matches = []
 					 ,box = box || _.document
 					 ,classPattern = new RegExp('(?:^|\\s)' + prepareRegExpString(className) + '(?:\\s|$)');
@@ -64,9 +73,9 @@
 						}
 				}
 				return matches;
-			}
+			},
 
-			,dataset: function(box, dataset) {
+			dataset: function(box, dataset) {
 				var dataRE = /^data\-/
 					 ,data = dataRE.test(dataset);
 				if ('dataset' in box) {
@@ -80,9 +89,9 @@
 						data ? dataset : dataset.replace(/^/, 'data-')
 					);
 				}
-			}
+			},
 
-			,text: function(box, text) {
+			text: function(box, text) {
 				if(box.textContent) {
 					box.textContent = text;
 				}
@@ -90,13 +99,13 @@
 				else if (box.innerText) {
 					box.innerText = text;
 				}
-			}
+			},
 
-			,html: function(box, chunk) {
+			html: function(box, chunk) {
 				box.innerHTML = chunk;
-			}
+			},
 
-			,insert: (function(proto) {
+			insert: (function(proto) {
 				var _where = ['beforeBegin', 'afterBegin', 'beforeEnd', 'afterEnd']
 					 ,whereRE = /^(?:bb|ab|be|ae)$/i
 				if (proto && !proto.insertAdjacentElement) {
@@ -142,9 +151,9 @@
 						)
 					}
 				}
-			})(HTMLElement && HTMLElement.prototype)
+			})(HTMLElement && HTMLElement.prototype),
 
-			,containsClass: function(box, token) {
+			containsClass: function(box, token) {
 				var result;
 				token = trim(token);
 				if (useClassList) {
@@ -155,9 +164,9 @@
 					result = new RegExp('(?:^|\\s)' + prepareRegExpString(token) + '(?:\\s|$)').test(box.className);
 				}
 				return result;
-			}
+			},
 
-			,addClass: function(box, token) {
+			addClass: function(box, token) {
 				token = trim(token);
 				if (useClassList) {
 					// Won't add the same class.
@@ -171,9 +180,9 @@
 					}
 				}
 				return box;
-			}
+			},
 
-			,removeClass: function(box, token) {
+			removeClass: function(box, token) {
 				token = trim(token);
 				if (useClassList) {
 					box.classList.remove(token);
@@ -186,9 +195,9 @@
 					}
 				}
 				return box;
-			}
+			},
 
-			,toggleClass: function(box, token) {
+			toggleClass: function(box, token) {
 				token = trim(token);
 				if (useClassList) {
 					box.classList.toggle(token);
@@ -284,18 +293,22 @@
 
 		,metrics: {
 			getPS: function() {
-				var html = _.document.documentElement,
-						body = _.document.body;
 				if (_.pageYOffset != void(0)) {
 					return {
 						top: _.pageYOffset,
 						left: _.pageXOffset
 					}
 				}
+				else if (_.scrollY != void(0)) {
+					return {
+						top: _.scrollY,
+						left: _.scrollX
+					}
+				}
 				else {
 					return {
-						top: (html.scrollTop || body && body.scrollTop || 0) - (html.clientTop || body.clientTop),
-						left: (html.scrollLeft || body && body.scrollLeft || 0) - (html.clientLeft || body.clientLeft)
+						top: (htmlNode.scrollTop || bodyNode && bodyNode.scrollTop || 0) - (htmlNode.clientTop || bodyNode.clientTop),
+						left: (htmlNode.scrollLeft || bodyNode && bodyNode.scrollLeft || 0) - (htmlNode.clientLeft || bodyNode.clientLeft)
 					}
 				}
 			},
@@ -325,6 +338,14 @@
 						return $$(node);
 					}
 				}
+			},
+
+			vw: function() {
+				return _.innerWidth || htmlNode.clientWidth || bodyNode.clientWidth;
+			},
+
+			vh: function() {
+				return _.innerHeight || htmlNode.clientHeight || bodyNode.clientHeight;
 			}
 		}
 
@@ -767,8 +788,7 @@
 					return alias.script(params);
 				},
 				script: function(params) {
-					var head = _.document.head || _.document.getElementsByTagName('head')[0],
-							script = _.document.createElement('script'),
+					var script = _.document.createElement('script'),
 							callbackName = (function(jsonpN) { do { jsonpN = 'jsonp' + (++jsonpID); } while(jsonpN in _); return jsonpN; })(),
 							callback = 'callback=' + callbackName,
 							callbackInvoked = false,
@@ -782,7 +802,7 @@
 					_[callbackName] = function(data) {
 						callbackInvoked = true;
 						delete _[callbackName];
-						head.removeChild(script);
+						headNode.removeChild(script);
 						try {
 							requestSuccess(arguments.callee.caller == alias.jsonp && JSONSupport ? JSON.parse(data) : data, _, params.success);
 						}
@@ -797,7 +817,7 @@
 						}
 						else {
 							delete _[callbackName];
-							head.removeChild(script);
+							headNode.removeChild(script);
 							requestError('Cannot perform JSONP Request', _, params.error);
 						}
 					}
@@ -817,7 +837,7 @@
 						// Not loaded for some reason
 						script.onerror = callbackCheckInvocation;
 					}
-					head.insertBefore(script, head.firstChild || null);
+					headNode.insertBefore(script, headNode.firstChild || null);
 				}
 			})
 		})()

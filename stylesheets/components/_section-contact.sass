@@ -95,7 +95,7 @@
 			-webkit-appearance: none
 			-webkit-border-radius: 0
 			border-radius: 0
-			border: 2px solid transparent
+			border-top: 2px solid transparent
 			border-bottom: 2px solid lightgrey
 			background-color: transparent
 			outline: none
@@ -104,7 +104,8 @@
 			+transition(all .7s cubic-bezier(0.19, 1, 0.22, 1) 0ms)
 
 			&:not([type=submit]):focus
-				border: 2px solid #69a1ef
+				border-top: 2px solid #69a1ef
+				border-bottom: 2px solid #69a1ef
 
 		input[type=submit]
 			margin-left: 0

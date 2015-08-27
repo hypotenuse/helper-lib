@@ -1,6 +1,15 @@
 
 .content
 	position: relative
-	margin-left: 260px
 	width: auto
 	+transition(all .5s cubic-bezier(0.19, 1, 0.22, 1) 0s)
+	
+	&.hide
+		margin-left: 0
+
+	&.show
+		margin-left: 260px
+
++media(640px)
+	.content.show
+		margin-left: 0

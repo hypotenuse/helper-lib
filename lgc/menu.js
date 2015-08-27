@@ -1,20 +1,22 @@
 ;(function(_) {
 
-	var mToggle = common.dom.get('menu-toggle')
-		 ,menu = common.dom.get('menu')
-		 ,content = common.dom.get('content')
-		 ,state = 'show';
+	var dom = common.dom
+		 ,toggle = dom.get('menu-toggle')
+		 ,menu = dom.get('menu')
+		 ,content = dom.get('content')
 
-	mToggle.onclick = function(Event) {
-		if (state == 'show') {
-			state = 'hide';
-			content.style.marginLeft = '0px';
-			menu.style.marginLeft = '-260px';
+	toggle.onclick = function(Event) {
+		if (common.dom.containsClass(menu, 'show')) {
+			dom.removeClass(menu, 'show');
+			dom.removeClass(content, 'show');
+			dom.addClass(menu, 'hide');
+			dom.addClass(content, 'hide');
 		}
 		else {
-			state = 'show';
-			content.style.marginLeft = '260px';
-			menu.style.marginLeft = '0';
+			dom.removeClass(menu, 'hide');
+			dom.removeClass(content, 'hide');
+			dom.addClass(menu, 'show');
+			dom.addClass(content, 'show');
 		}
 	}
 

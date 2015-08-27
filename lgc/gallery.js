@@ -93,8 +93,8 @@
 	*/
 	var escCode = 27
 
-	,documentElement = _.document.documentElement
-	,documentBody = _.document.body || _.document.getElementsByTagName('body')[0]
+	,htmlNode = common.dom.htmlNode
+	,bodyNode = common.dom.bodyNode
 	
 	,itemData = i18n._worksData
 	,itemsList = [ common.dom.get('items-list-1'), common.dom.get('items-list-2') ]
@@ -117,12 +117,12 @@
 			 ,w, _w;
 		boxA.style.cssText = 'width:100px;height:100px;position:absolute;visibility:hidden';
 		boxB.style.cssText = 'width:50px;height:105px';
-		documentBody.appendChild(boxA);
+		bodyNode.appendChild(boxA);
 		w = boxA.clientWidth;
 		boxA.style.cssText += 'overflow-y:scroll';
 		boxA.appendChild(boxB);
 		_w = boxA.clientWidth;
-		documentBody.removeChild(boxA);
+		bodyNode.removeChild(boxA);
 		return w - _w;
 	})()
 	
@@ -131,11 +131,11 @@
 	}
 
 	,sbarHide = function() {
-		cssText(documentElement, 'overflow:hidden;margin-right:' + sw + 'px');
+		cssText(htmlNode, 'overflow:hidden;margin-right:' + sw + 'px');
 	}
 
 	,sbarShow = function() {
-		cssText(documentElement, 'overflow:visible');
+		cssText(htmlNode, 'overflow:visible');
 	}
 
 	,formItem = function(index, src, name) {
@@ -255,11 +255,7 @@ shboxItemPrev.onclick = shboxItemNext.onclick = function(Event) {
 }
 
 _.onresize = function(Event) {
-	
-	var vw = _.innerWidth || documentElement.clientWidth || documentBody.clientWidth,
-			vh = _.innerHeight || documentElement.clientHeight || documentBody.clientHeight;
-	
-	if (shboxContentWrap.clientHeight > vh) {
+	if (shboxContentWrap.clientHeight > common.metrics.vh()) {
 		cssText(shboxArrowRight, 'position:fixed');
 		cssText(shboxArrowLeft, 'position:fixed');
 	}
@@ -267,20 +263,6 @@ _.onresize = function(Event) {
 		cssText(shboxArrowRight, 'position:absolute');
 		cssText(shboxArrowLeft, 'position:absolute');
 	}
-	/*
-	if (vw > 930) {
-		gs_1.changeShowCount(3);
-		gs_2.changeShowCount(3);
-	}
-	else if (930 >= vw && vw >= 420) {
-		gs_1.changeShowCount(2);
-		gs_2.changeShowCount(2);
-	}
-	else if (420 >= vw) {
-		gs_1.changeShowCount(1);
-		gs_2.changeShowCount(1);
-	}
-	*/
 }
 
 for (var j = 0; j < itemsList.length; ++j) {

@@ -110,29 +110,35 @@
 	}
 
 	// Mobile fix: menu intersects input elements when it is focused
-	if ('onfocus' in document.createElement('div')) {
+	if (640 >= _.screen.width) {
 		var menu = common.dom.get('menu'), 
 		
 		vendors = [
 			'webkitTransform', 'MozTransform', 'msTransform', 'OTransform', 'transform'
 		],
+		
+		names = [
+			'username', 'useremail', 'usertext'
+		],
+
 		moveMenu = function(y) {
 			for (var v = 0; v < vendors.length; ++v) {
 				menu.style[vendors[v]] = 'translateY(' + y + ')';
 			}
-		}
-		
-		onfocus = function(Event) {
-			if (640 >= _.innerWidth || documentElement.clientWidth || documentBody.clientWidth) {
+		},
+		onfb = function(Event) {
+			var type = common.event.getEvent(Event).type;
+			if (/focus/.test(type)) {
 				moveMenu('-100%');
 			}
-		},
-		onblur = function(Event) {
-			moveMenu('0');
+			else if (/blur/.test(type)) {
+				moveMenu('0');
+			}
+			common.event.stopPropagation(Event);
 		}
-		for (var names = ['username', 'useremail', 'usertext'], j = 0; j < names.length; ++j) {
-			formspreeForm.elements[names[j]].onfocus = onfocus;
-			formspreeForm.elements[names[j]].onblur = onblur;
+
+		for (var j = 0; j < names.length; ++j) {
+			formspreeForm.elements[names[j]].onfocus = formspreeForm.elements[names[j]].onblur = onfb;
 		}
 	}
 })(window);

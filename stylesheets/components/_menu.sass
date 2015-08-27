@@ -10,6 +10,12 @@
 	+transition(all .5s cubic-bezier(0.19, 1, 0.22, 1) 0s)
 	z-index: 99999
 
+	&.hide
+		margin-left: -260px
+
+	&.show
+		margin-left: 0
+
 	// :: menu-header
 	.menu-header
 		padding: 36px 24px
@@ -156,6 +162,9 @@
 // Responsive Part
 +media(640px)
 	.menu
+
+		&.hide
+			margin-left: 0
 
 		width: 100%
 		height: 58px

@@ -1,5 +1,5 @@
 			<!-- Section: menu -->
-			<div class="menu" id="menu">
+			<div class="menu show" id="menu">
 				<div class="menu-header">
 					<div class="userpic">
 					</div>
@@ -71,7 +71,7 @@
 				</div>
 			</div>
 			<!-- Section: content -->
-			<div class="content" id="content">
+			<div class="content show" id="content">
 				<section class="section-intro" id="section-intro">
 					<div class="wrapper">
 						<h1 class="section-name">
