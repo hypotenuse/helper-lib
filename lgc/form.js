@@ -109,4 +109,8 @@
 		common.event.preventDefault(Event);
 	}
 
+	formspreeForm.elements['username'].ontouchstart = function(Event) {
+		alert(1);
+	}
+
 })(window);
