@@ -109,8 +109,30 @@
 		common.event.preventDefault(Event);
 	}
 
-	formspreeForm.elements['username'].ontouchstart = function(Event) {
-		alert(1);
+	// Mobile fix: menu intersects input elements when it is focused
+	if ('ontouchstart' in document.createElement('div')) {
+		var menu = common.dom.get('menu'), 
+		
+		vendors = [
+			'webkitTransform', 'MozTransform', 'msTransform', 'OTransform', 'transform'
+		],
+		moveMenu = function(y) {
+			for (var v = 0; v < vendors.length; ++v) {
+				menu.style[vendors[v]] = 'translateY(' + y + ')';
+			}
+		}
+		
+		touchstart = function(Event) {
+			if (640 >= _.innerWidth || documentElement.clientWidth || documentBody.clientWidth) {
+				moveMenu('-100%');
+			}
+		},
+		touchend = function(Event) {
+			moveMenu('0');
+		}
+		for (var names = ['username', 'useremail', 'usertext'], j = 0; j < names.length; ++j) {
+			formspreeForm.elements[names[j]].ontouchstart = touchstart;
+			formspreeForm.elements[names[j]].ontouchend = touchend;
+		}
 	}
-
 })(window);
