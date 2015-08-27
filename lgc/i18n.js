@@ -46,7 +46,7 @@
 				{
 					'name': 'Ivan P',
 					'undername': 'Frontend developer',
-					'itemName1': 'Introduction',
+					'itemName1': 'Intro',
 					'itemName2': 'My apps / Works',
 					'itemName3': 'About Me',
 					'itemName4': 'Contact',

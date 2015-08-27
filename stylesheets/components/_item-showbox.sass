@@ -126,3 +126,51 @@
 
 	.item-next .shbox-arrow-right
 		background-position: 0 -95px
+
++media(640px)
+	.item-showbox
+
+		.shbox-content-wrap
+			width: 300px
+			margin: 60px auto 30px
+
+		.shbox-content 
+			.shbox-item-name,
+			.shbox-item-links
+				padding: 25px 30px
+
+			.shbox-item-image
+				width: 300px
+				height: 175px
+
+			.shbox-item-text
+				padding: 30px
+
+			.shbox-link
+				margin: auto
+
+			.shbox-item-links
+				font-size: 13px
+		
+		.item-next,
+		.item-prev
+			width: 50%
+			height: 50px
+			margin-top: -50px
+			bottom: auto
+			background-color: rgba(25, 25, 25, .25)
+
+			&:hover
+				background-color: rgba(25, 25, 25, .45)
+
+		.item-prev
+			left: 0
+
+		.item-next
+			right: 0
+
+		.item-prev .shbox-arrow-left,
+		.item-next .shbox-arrow-right
+			left: 50%
+			margin-left: -8.5px
+			position: absolute !important
