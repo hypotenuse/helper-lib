@@ -31,13 +31,13 @@
 	.userpic
 		float: left
 		+border-radius(50px)
-		background-image: url(/graphics/ui/cocktail-icon.png)
+		background-image: url(/graphics/ui/hammer.jpg)
 		background-repeat: no-repeat
-		background-size: 100% auto
+		background-size: 87% auto
 		background-position: 50% 50%
-		background-color: hotpink
+		background-color: #494d4e
 		cursor: pointer
-		+opacity(.87)
+		+opacity(.75)
 		+transition
 
 		&:hover
@@ -176,9 +176,13 @@
 		.menu-header
 			display: none
 
-		.userinfo
-			text-align: center
+		.userinfo,
+		.menu-navigation .item-name,
+		.menu-footer
 			display: none
+		
+		.nav-item
+			+inline-block
 
 		.menu-navigation
 			width: 330px
@@ -186,12 +190,3 @@
 
 			.nav-item.current
 				+box-shadow(none)
-
-		.menu-navigation .item-name
-			display: none
-
-		.nav-item
-			+inline-block
-
-		.menu-footer
-			display: none

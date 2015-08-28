@@ -271,6 +271,9 @@
 				</section>
 				<!-- Section: footer -->
 				<footer>
-					<a href="/" target="_blank">ivvy.me</a> {{ i18n.copy }}
+					<a href="/" target="_blank">/hypotenuse.github.io/</a>
+					{{ i18n.copy }}
+					<br>
+					All rights reserved
 				</footer>
 			</div>
