@@ -64,6 +64,7 @@
 		cursor: pointer
 		font-size: 34px 
 		text-align: center
+		+transition(all .5s cubic-bezier(0.19, 1, 0.22, 1) 0s)
 
 	// :: menu-header
 
@@ -158,6 +159,20 @@
 			margin-top: 5px
 			font-size: 22px
 			color: rgba(0, 0, 0, 0.5)
+
++media(780px)
+	.menu
+		width: 230px
+		
+		&.hide
+			margin-left: -230px
+
+		.menu-navigation .item-name
+			width: 145px
+
+		.menu-toggle
+			right: -55px
+
 
 // Responsive Part
 +media(640px)

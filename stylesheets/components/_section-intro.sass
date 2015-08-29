@@ -23,6 +23,7 @@
 			font: $section-intro-section-name-font-size  $section-intro-section-name-family
 			line-height: 1.7em
 			margin-bottom: 55px
+			+transition(all 1.4s cubic-bezier(0.19, 1, 0.22, 1) 0s)
 
 		.section-content
 			color: $section-intro-section-content-color
@@ -64,6 +65,13 @@
 			margin-top: 10px
 			font-size: 35px
 			color: rgb(114, 114, 114)
+
++media(780px)
+	.section-intro
+		.wrapper .section-name
+			font-size: 56px
+		.wrapper .section-content
+			font-size: 20px
 
 // Responsive Part
 +media(640px)
