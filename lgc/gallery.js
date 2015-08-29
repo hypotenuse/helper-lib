@@ -131,11 +131,11 @@
 	}
 
 	,sbarHide = function() {
-		cssText(htmlNode, 'overflow:hidden;margin-right:' + sw + 'px');
+		cssText(bodyNode, 'overflow:hidden;margin-right:' + sw + 'px');
 	}
 
 	,sbarShow = function() {
-		cssText(htmlNode, 'overflow:visible');
+		cssText(bodyNode, 'overflow:visible');
 	}
 
 	,formItem = function(index, src, name) {

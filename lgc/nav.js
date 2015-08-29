@@ -50,7 +50,7 @@
 		}
 	}
 
-	_.onscroll = function() {
+	_.onscroll = function(Event) {
 
 		var offset = 320, pst = common.metrics.getPS().top
 		
@@ -58,7 +58,6 @@
 		else if (pst >= common.metrics.getEC( sections[2] ).top - offset) indicate( navItems[2] );
 		else if (pst >= common.metrics.getEC( sections[1] ).top - offset) indicate( navItems[1] );
 		else if (pst >= common.metrics.getEC( sections[0] ).top - offset) indicate( navItems[0] );
-
 	}
 
 	// Indicate current navigation item
