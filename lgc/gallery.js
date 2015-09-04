@@ -91,7 +91,7 @@
 		}
 	}
 	*/
-	var escCode = 27
+	var escCode = 27, raCode = 37, laCode = 39
 
 	,htmlNode = common.dom.htmlNode
 	,bodyNode = common.dom.bodyNode
@@ -191,6 +191,74 @@
 		_Event(Event);
 	}
 
+	,itemNP = function(Event) {
+		
+		Event = common.event.getEvent(Event);
+
+		var dir,
+				keyboard = /keydown/i.test(Event.type);
+
+		if (itemIndexesLast) {
+			if (keyboard && common.dom.containsClass(itemShowBox, 'show')) {
+				if (raCode == Event.keyCode) {
+					dir = 'prev';
+				}
+				else if (laCode == Event.keyCode) {
+					dir = 'next';
+				}
+			}
+			else {
+				dir = common.dom.dataset(this, 'dir');
+			}
+			if (dir == 'prev') {
+				if (itemIndexesLast[0] == 1) {
+					if (itemIndexesLast[1] == 0) {
+						itemIndexesLast[0] = 0;
+						itemIndexesLast[1] = itemData[0].length - 1;
+					}
+					else {
+						--itemIndexesLast[1];
+					}
+				}
+				else {
+					if (itemIndexesLast[1] > 0) {
+						--itemIndexesLast[1];
+					}
+					else {
+						itemIndexesLast[0] = 1;
+						itemIndexesLast[1] = itemData[1].length - 1;
+					}
+				}
+			}
+			else if (dir == 'next') {
+				if (itemIndexesLast[0] == 1) {
+					if (itemData[1][itemIndexesLast[1] + 1]) {
+						++itemIndexesLast[1];
+					}
+					else {
+						itemIndexesLast[0] = 0;
+						itemIndexesLast[1] = 0;
+					}
+				}
+				else {
+					if (itemData[0][itemIndexesLast[1] + 1]) {
+						++itemIndexesLast[1];
+					}
+					else {
+						itemIndexesLast[0] = 1;
+						itemIndexesLast[1] = 0;
+					}
+				}
+			}
+			if (dir) {
+				// shbox this!
+				shbox(itemIndexesLast[0], itemIndexesLast[1]);
+				_Event(Event);
+			}
+			common.event.stopPropagation(Event);
+		}
+	}
+
 shboxClose.onclick = _.document.onkeyup = function(Event) {
 	_Event(Event = common.event.getEvent(Event));
 	if(Event.keyCode == escCode || Event.type == 'click') {
@@ -199,60 +267,8 @@ shboxClose.onclick = _.document.onkeyup = function(Event) {
 	}
 }
 
-shboxItemPrev.onclick = shboxItemNext.onclick = function(Event) {
-	
-	var dir;
-
-	if (itemIndexesLast) {
-		dir = common.dom.dataset(this, 'dir');
-		if (dir == 'prev') {
-			if (itemIndexesLast[0] == 1) {
-				if (itemIndexesLast[1] == 0) {
-					itemIndexesLast[0] = 0;
-					itemIndexesLast[1] = itemData[0].length - 1;
-				}
-				else {
-					--itemIndexesLast[1];
-				}
-			}
-			else {
-				if (itemIndexesLast[1] > 0) {
-					--itemIndexesLast[1];
-				}
-				else {
-					itemIndexesLast[0] = 1;
-					itemIndexesLast[1] = itemData[1].length - 1;
-				}
-			}
-		}
-		else {
-			if (itemIndexesLast[0] == 1) {
-				if (itemData[1][itemIndexesLast[1] + 1]) {
-					++itemIndexesLast[1];
-				}
-				else {
-					itemIndexesLast[0] = 0;
-					itemIndexesLast[1] = 0;
-				}
-			}
-			else {
-				if (itemData[0][itemIndexesLast[1] + 1]) {
-					++itemIndexesLast[1];
-				}
-				else {
-					itemIndexesLast[0] = 1;
-					itemIndexesLast[1] = 0;
-				}
-			}
-		}
-		// shbox this!
-		shbox(
-			itemIndexesLast[0]
-		 ,itemIndexesLast[1]
-		)
-	}
-	_Event(Event);
-}
+shboxItemPrev.onclick = shboxItemNext.onclick = itemNP;
+common.event.on('keydown', _.document, itemNP);
 
 _.onresize = function(Event) {
 	if (shboxContentWrap.clientHeight > common.metrics.vh()) {

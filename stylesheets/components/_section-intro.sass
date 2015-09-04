@@ -21,9 +21,12 @@
 			margin-top: 0
 			color: $section-intro-section-name-color
 			font: $section-intro-section-name-font-size  $section-intro-section-name-family
-			line-height: 1.7em
+			line-height: 0.5
 			margin-bottom: 55px
-			+transition(all 1.4s cubic-bezier(0.19, 1, 0.22, 1) 0s)
+
+		.intro-info
+			width: 500px
+			margin: 60px auto
 
 		.section-content
 			color: $section-intro-section-content-color
@@ -38,9 +41,14 @@
 			margin: 0 20px
 			cursor: pointer
 			border-bottom: 2px solid transparent
-			+transition(all 1.4s cubic-bezier(0.19, 1, 0.22, 1) 0s)
+			text-transform: uppercase
 			&:hover
 				border-bottom: 2px solid #2099d5
+
+		.section-name,
+		.intro-info,
+		.able-to
+			+transition(all .7s cubic-bezier(0.19, 1, 0.22, 1) 0s)
 
 		.section-name,
 		.section-content
@@ -71,14 +79,23 @@
 		.wrapper .section-name
 			font-size: 56px
 		.wrapper .section-content
-			font-size: 20px
+			font-size: 17px
+		.wrapper .intro-info
+			width: 300px
+			font-size: 15px
+
 
 // Responsive Part
 +media(640px)
 
 	.section-intro
 		min-height: 0
-		height: 480px
+		height: auto
+		padding: 120px 0 50px
+
+		.wrapper
+			top: auto
+			margin-top: 0
 
 		.wrapper .section-content
 			font-size: 14px

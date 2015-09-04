@@ -4,6 +4,7 @@
 		 ,langboxEn = common.dom.get('langbox-en')
 		 ,langboxRu = common.dom.get('langbox-ru')
 		 ,pgContainer = common.dom.get('pg-container')
+		 ,pgLoader = common.dom.get('pg-loader')
 		 ,body = _.document.body || _.document.getElementsByTagName('body')[0]
 		 ,remainingResourses = ['animate.js', 'popupbox.js', 'form.js', 'items.js', 'nav.js', 'menu.js', 'gallery.js'],
 
@@ -45,15 +46,16 @@
 	i18nList = [
 				{
 					'name': 'Ivan P',
-					'undername': 'Frontend developer',
+					'undername': 'Frontend Developer',
 					'itemName1': 'Intro',
 					'itemName2': 'My apps / Works',
 					'itemName3': 'About Me',
 					'itemName4': 'Contact',
 					'introWelcome': 'hypotenuse',
+					'introInfo': 'Hi! I\'m Ivan P I\'m a Frontend Developer. Here you can <s>fly</s> find a bit more about me and my work',
 					'introAbleTo1': 'View Apps',
 					'introAbleTo2': 'Read Info',
-					'introAbleTo3': 'Send Me',
+					'introAbleTo3': 'Contact Me',
 					
 					'sectionPortfolioName': 'My apps / Works',
 					'sectionPortfolioContent': ' \
@@ -61,70 +63,98 @@
 					
 					'sectionAboutName': 'About Me',
 					'sectionAboutContent': ' \
-							Here I decided to make a Question & Answer section. \
-							\
-							The section intends to answer on some key questions about me and how I \
-							\
-							can assist you and your project you\'re working on.',
+						This section intends to answer on some key questions about me and how I \
+						\
+						can assist you and your project you\'re working on.',
 
-					'sectionAboutHeaderName1': 'Personal information',
+					'sectionAboutHeaderName1': 'Personal Information',
 					'sectionAboutHeaderText1': '\
-						Name:&nbsp;<b>Ivan</b> \
-							\
-							Surname:&nbsp;<b>Pankov</b> \
-							\
-							Internet name: <b>hypotenuse</b> \
-							\
-							Age:&nbsp;<b>22</b> \
-							\
-							Gender:&nbsp;<b>Male</b> \
-							\
-							Occupation:&nbsp;<b>Frontend developer</b> \
-							\
-							Location:&nbsp;<b>Russia, Moscow</b> \
-						',
-
-					'sectionAboutHeaderName2': 'What do I know?',
-					'sectionAboutHeaderText2': ' \
-							Programming languages: <b>JS</b> \
-							\
-							Preprocessors: <b>SASS, SCSS</b> \
-							\
-							Frameworks/Libraries: <b>AngularJS, JQuery, Underscore / Lo-Dash. \
-							\
-							Also, It\'s not too difficult to learn & use anything else \
-							\
-							(library or framework). It depends on what you want to achieve.</b> \
-							\
-							Other technologies: <b>CSS, HTML, JSON/XML</b> \
-							\
-							Backend: <b>PHP, Node.js. (Superficial knowledge)</b>',
-
-					'sectionAboutHeaderName3': 'What about my experience?',
-					'sectionAboutHeaderText3': 'I\'ve been working as a freelance frontend-programmer since 2014',
-
-					'sectionAboutHeaderName4': 'What about my education?',
-					'sectionAboutHeaderText4': ' \
-							MSIU. Faculty of Applied Mathematics and Technical Physics (2011 - 2013). \
-							\
-							Moscow Engineering Physics Institute. Faculty of Cybernetics (2013 - 2014).',
-
-					'sectionAboutHeaderName5': 'What can I do for you?',
-					'sectionAboutHeaderText5': ' \
-							If you need programming: \
-							\
-							I can solve any frontend task primarily using pure JS or its frameworks. \
-							\
-							If you need a makeup: \
-							\
-							I can do a makeup. Whether it is a LP (Landing Page) or multifunctional UI\'s. \
+						<p> \
+							<b>Name:</b> Ivan \
+						</p> \
+						<p> \
+							<b>Surname:</b> Pankov \
+						</p> \
+						<p> \
+							<b>Age:</b> 22 \
+						</p> \
+						<p> \
+							<b>Internet name:</b> hypotenuse \
+						</p> \
+						<p> \
+							<b>Gender:</b> Male \
+						</p> \
+						<p> \
+							<b>Occupation:</b> Frontend developer \
+						</p> \
+						<p> \
+							<b>Location:</b> Russia \
+						</p> \
 					',
 
-					'sectionAboutHeaderName6': 'What should you do now?',
+					'sectionAboutHeaderName2': 'What Do I Know?',
+					'sectionAboutHeaderText2': ' \
+						<p> \
+							<b>Programming languages:</b> JavaScript (JS) \
+						</p> \
+						<p> \
+							<b>Preprocessors:</b> SASS, SCSS \
+						</p> \
+						<p> \
+							<b>Key technologies:</b> Jade(Template Engine), HTML4/HTML5, CSS, JSON/XML \
+						</p> \
+						<p> \
+							<b>Frameworks/Libraries:</b> JQuery, Underscore, AngularJS \
+						</p> \
+						<p> \
+							<b>Backend:</b> PHP, MySQL, Node.js (Superficial knowledge) \
+						</p> \
+						<p> \
+							<b>Familiar with:</b> C/C++, Ruby \
+						</p> \
+						<p> \
+							<b>Languages:</b> English, Russian \
+						</p> \
+					',
+
+					'sectionAboutHeaderName3': 'What About My Experience?',
+					'sectionAboutHeaderText3': 'I\'ve been working as a freelance frontend-programmer since 2014',
+
+					'sectionAboutHeaderName4': 'What About My Education?',
+					'sectionAboutHeaderText4': ' \
+						<p> \
+							<b>MSIU</b> Faculty of Applied Mathematics and Technical Physics (2011 - 2013) \
+						</p> \
+						<p> \
+							<b>Moscow Engineering Physics Institute</b> Faculty of Cybernetics (2013 - 2014) \
+						</p> \
+					',
+
+					'sectionAboutHeaderName5': 'What Can I Do For You?',
+					'sectionAboutHeaderText5': ' \
+						<p> \
+							<b>If you need programming:</b> \
+							I can solve any frontend task primarily using pure JS or its frameworks. \
+							Frontend task may be something like: Programming UI Elements, Ajax application, Animations, \
+							Integration with other services and so on. \
+						</p> \
+						<p> \
+							<b>If you need markup:</b> \
+							I can do it. Whether it is a LP (Landing Page) or multifunctional UI\'s. \
+							Have a PSD-Template? I can create a HTML structure based on this template. \
+						</p> \
+					',
+
+					'sectionAboutHeaderName6': 'What Now?',
 					'sectionAboutHeaderText6': ' \
-							If you\'re interested in the information above You can ask me a question \
-							\
-							If not it\'s OK. Probably you\'re looking for something different or something that fits your needs.',
+						<p> \
+							<b>If you\'re interested</b> You can cooperate with Me (Join me to your applicaiton / project) \
+							or maybe ask some additional questions. \
+						</p> \
+						<p> \
+							<b>If not</b> Just click the close button. Simple as that. \
+						</p> \
+					',
 
 					'sectionContactName': 'Any Questions?',
 					'sectionContactContent': ' \
@@ -132,13 +162,8 @@
 							\
 							Just ask. And I\'ll answer you as soon as possible',
 
-					'navButtonBoxName1': 'About Me',
-					'navButtonBoxName2': 'My apps',
-					'navButtonBoxName3': 'Contact',
-					'navButtonBoxName4': 'Intro',
-
 					'firstListName': 'Programming',
-					'secondListName': 'Makeup / Design',
+					'secondListName': 'Markup / Design',
 
 					'usernamePlaceholderText': 'Your name',
 					'useremailPlaceholderText': 'Your email',
@@ -209,11 +234,7 @@
 						 	 				 <p> \
 						 	 				 		By the way, have you ever tried to develop your own version of this game? The game may be quite addictive. \
 						 	 				 		I got infected by it and thought that if I want to get rid of the infection I <s>should</s> must to develop my own version. \
-						 	 				 		Here we go! What do you see in front of your eyes? Right! My own version of the game (JS Port to be precise). \
-						 	 				 </p> \
-						 	 				 <p> \
-						 	 				 		The game may be a bit buggy, anyways just in case if you\'ll notice any bugs, please let me know \
-						 	 				 		(You can add a pull request in the repository or just create a new issue there) \
+						 	 				 		Here we go! What do you see in front of your eyes? Right! My own version of the game. \
 						 	 				 </p>'
 							 ,links: [
 							 		{
@@ -226,11 +247,11 @@
 						// ------ list 2 ------
 					 ,[
 					 		{
-					 			name: 'Верстка 1'
+					 			name: 'Верстка START'
 					 		 ,title: 'No title provided'
 					 		 ,revisionDate: 'Last revision: 21 March 2014'
 					 		 ,src: '/graphics/imgentities/dpjs.png'
-					 		 ,text: 'This is awesome description about Верстка 1'
+					 		 ,text: 'This is awesome description about Верстка START'
 							 ,links: [
 							 		{
 							 			url: '//github.com/hypotenuse'
@@ -269,7 +290,7 @@
 							 ,title: 'No title provided'
 					 	 	 ,revisionDate: 'Last revision: 21 March 2014'
 					 	 	 ,src: '/graphics/imgentities/dpjs.png'
-							 ,text: 'This is awesome description about Верстка 4'
+							 ,text: 'Немного гугла<p><img src="http://img01.deviantart.net/f30e/i/2013/241/9/c/a_new_google_icon_by_jokubas00-d6k75qr.png" width="80%"/></p><p>Вот такой вот гугл, разгуглился</p>'
 							 ,links: [
 							 		{
 							 			url: '//github.com/hypotenuse'
@@ -290,97 +311,139 @@
 							 		}
 								]
 					 	 	}
+					 	 ,{
+					 	 		name: 'Верстка END'
+					 	 	 ,title: 'No title provided'
+					 	 	 ,revisionDate: 'Last revision: 21 March 2014'
+					 	 	 ,src: '/graphics/imgentities/dpjs.png'
+							 ,text: 'This is awesome description about Верстка END'
+							 ,links: [
+							 		{
+							 			url: '//github.com/hypotenuse'
+							 		 ,text: 'See this app in Github'
+							 		}
+								]
+					 	 	}
 					 	]
 					],
-					'copy': '© 2015. Developed by Ivan P'
+					'copy': '2015 © Ivan P'
 				},
 
 				{
-					'name': 'Ivan Пэ',
+					'name': 'Ivan P',
 					'undername': 'Фронтенд разработчик',
 					'itemName1': 'Интро',
 					'itemName2': 'Мои приложения',
 					'itemName3': 'Обо мне',
 					'itemName4': 'Написать мне',
 					'introWelcome': 'hypotenuse',
-					'introAbleTo1': 'Посмотреть работы',
-					'introAbleTo2': 'Посмотреть информацию',
-					'introAbleTo3': 'Отправить сообщение',
+					'introInfo': 'Программирование на JS / Верстка (Создание, поддержка и развитие фронтенд части приложения)',
+					'introAbleTo1': 'Мои приложения',
+					'introAbleTo2': 'Обо мне',
+					'introAbleTo3': 'Написать мне',
 					
 					'sectionPortfolioName': 'Мои приложения / Работы',
 					'sectionPortfolioContent': ' \
-							Здесь собран список приложений над которыми я работал (работаю). \
-							\
-							Вы можете посмотреть более подробную информацию об определенном приложении.',
+							Здесь можно посмотреть список приложений над которыми я работаю или работал.',
 					
 					'sectionAboutName': 'Обо мне',
 					'sectionAboutContent': ' \
-							Здесь собранны ответы на некоторые ключевые вопросы. \
-							\
-							Я постарался выложить здесь наиболее важную информацию. \
-							\
-							Возможно, если информации не достаточно, Вы можете мне написать.',
+							Расширенная информация обо мне и о том чем я могу быть полезен вам и вашему проекту \
+							над которым вы работаете. \
+							',
 
 					'sectionAboutHeaderName1': 'Персональная информация',
 					'sectionAboutHeaderText1': '\
-							Имя: <b>Ivan</b> \
-							\
-							Никнейм: <b>hypotenuse</b> \
-							\
-							Возраст: <b>22</b> \
-							\
-							Пол: <b>мужской</b> \
-							\
-							Род деятельности: <b>Фронтенд разработчик</b> \
-							\
-							Место нахождения: <b>Россия, Москва</b> \
+							<p> \
+								<b>Имя:</b> Ivan \
+							</p> \
+							<p> \
+								<b>Фамилия:</b> Pankov \
+							</p> \
+							<p> \
+								<b>Возраст:</b> 22 \
+							</p> \
+							<p> \
+								<b>Никнейм:</b> hypotenuse \
+							</p> \
+							<p> \
+								<b>Пол:</b> мужской \
+							</p> \
+							<p> \
+								<b>Род деятельности:</b> Фронтенд разработчик \
+							</p> \
+							<p> \
+								<b>Место нахождения:</b> Россия, Москва \
+							</p> \
 						',
 
-					'sectionAboutHeaderName2': 'Что я знаю и какие технологии использую?',
+					'sectionAboutHeaderName2': 'Что знаю и какие технологии использую?',
 					'sectionAboutHeaderText2': ' \
-							Языки: <b>Русский, Английсий, JS</b> \
-							\
-							Препроцессоры: <b>SASS, SCSS</b> \
-							\
-							Фреймворки/Библиотеки: <b>AngularJS, JQuery, Underscore/Lo-Dash</b> \
-							\
-							Другие техноголии: <b>CSS, HTML, JSON/XML</b> \
-							\
-							Бэкэнд: <b>PHP, Node.js</b>',
+						<p> \
+							<b>Языки программирования:</b> JavaScript (JS) \
+						</p> \
+						<p> \
+							<b>Препроцессоры:</b> SASS, SCSS \
+						</p> \
+						<p> \
+							<b>Основные технологии:</b> Jade(Template Engine), HTML4/HTML5, CSS, JSON/XML \
+						</p> \
+						<p> \
+							<b>Фреймворки/Библиотеки:</b> JQuery, Underscore, AngularJS \
+						</p> \
+						<p> \
+							<b>Бэкенд:</b> PHP, MySQL, Node.js (Поверхностно) \
+						</p> \
+						<p> \
+							<b>Знаком с:</b> C/C++, Ruby \
+						</p> \
+						<p> \
+							<b>Языки:</b> Английский, Русский \
+						</p> \
+					',
 
 					'sectionAboutHeaderName3': 'Опыт?',
-					'sectionAboutHeaderText3': 'На данный момент работаю на бирже фриланса с 2014',
+					'sectionAboutHeaderText3': 'Работаю на биржах фриланса с 2014',
 
 					'sectionAboutHeaderName4': 'Учеба?',
-					'sectionAboutHeaderText4': ' \
-							МГИУ. Факультет Прикладной математики и технической физики (2011 - 2013). \
-							\
-							НИЯУ МИФИ. Факультет Кибернетики (2013 - 2014).',
+					'sectionAboutHeaderText4': '\
+						<p> \
+							<b>МГИУ</b> Факультет Прикладной математики и технической физики (2011 - 2013) \
+						</p> \
+						<p> \
+							<b>НИЯУ МИФИ</b> Факультет Кибернетики (2013 - 2014) \
+						</p> \
+					',
 
 					'sectionAboutHeaderName5': 'Что я могу сделать для вашего проекта?',
 					'sectionAboutHeaderText5': ' \
-							Если необходимо программирование: \
-							\
-							Я могу решать любые фронт-енд задачи используя JS или его фреймворки/библиотеки. \
-							\
-							Если необходима верстка: \
-							\
+						<p> \
+							<b>Если необходимо программирование:</b> \
+							Я могу решать любые фронтенд задачи на чистом JS или с помощью его фреймворков/библиотек. \
+							Фронтенд задачи, например, могут быть: Программирование пользовательских интерфейсов, \
+							Создание асинхронных приложений (Ajax), Анимации, Интеграция со сторонними сервисами и т.д. \
+						</p> \
+						<p> \
+							<b>Если необходима верстка:</b> \
 							Я могу верстать от лендингов до многофункциональных пользовательских интерфейсов. \
-							\
-							При этом, верстка будет и валидной и кроссбраузерной \
+						</p> \
 						',
 
 					'sectionAboutHeaderName6': 'Что дальше?',
 					'sectionAboutHeaderText6': ' \
-							Если Вы заинтересованны в предоставленной мною информации, можете со мной связаться. \
-							\
-							Если нет, ничего страшного. Возможно, Вы заинтересованны в чем-то другом.',
+						<p> \
+							<b>Если я не безразличен</b>, то Вы можете пригласить меня к себе на проект или задать дополнительные вопросы. \
+						</p> \
+						<p> \
+							<b>Если безразличен</b>, просто закройте данный таб. \
+						</p> \
+					',
 
 					'sectionContactName': 'Остались вопросы?',
 					'sectionContactContent': ' \
-							Здесь Вы можете задать вопросы. \
-							\
-							Просто заполните форму. И я отвечу.',
+						Здесь Вы можете задать их. \
+						Просто заполните форму. И я отвечу. \
+					',
 
 					'navButtonBoxName1': 'Обо мне',
 					'navButtonBoxName2': 'Приложения',
@@ -412,7 +475,7 @@
 								title: 'Dpbox JS',
 								revisionDate: 'Последнее обновление: 21 Март 2014',
 								src: '/graphics/imgentities/dpjs.png',
-								text: 'Dpbox - минималистичный Date picker.',
+								text: 'Dpbox - минималистичный Datepicker',
 								links: [
 							 		{
 							 			url: '//github.com/hypotenuse',
@@ -438,10 +501,10 @@
 						 		title: 'JS версия популярной игры Tetris',
 						 		revisionDate: 'Последнее обновление: 21 Март 2014',
 						 		src: '/graphics/imgentities/dpjs.png',
-						 		text: 'Это JS порт известной игры Тетрис. \
+						 		text: 'Это JS версия известной игры Tetris. \
 						 					 Тетрис известен своим свойством заразительности, \
 						 					 ненавязчивой графикой и динамичностью. \
-						 					 Оригинальный тетрис был разработан Алексеем Пажитновым в недалеком 1984 году',
+						 					 Оригинальный тетрис был разработан Алексеем Пажитновым в недалеком 1984 году.',
 						 		links: [
 							 		{
 							 			url: '//github.com/hypotenuse',
@@ -454,9 +517,9 @@
 						 		title: 'JS версия популярной игры Snake',
 						 		revisionDate: 'Последнее обновление: 21 Март 2014',
 						 		src: '/graphics/imgentities/dpjs.png',
-						 		text: 'Это JS порт известной игры Snake. \
-						 					 Механика игры проста и тривиальна - игрок маневрирует некой линией, которая растет в длинну, \
-						 					 и которая может сгибаться. По мере маневрирования, игрок заботится о том, чтобы линия была \
+						 		text: 'Это JS версия известной игры Snake. \
+						 					 Механика игры проста и тривиальна - игрок маневрирует некой линией, которая растет в длинну \
+						 					 и которая может сгибаться. По мере маневрирования игрок заботится о том, чтобы линия была \
 						 					 как можно больше для того, чтобы набрать очки, при этом понимая, что чем больше линия, тем больше \
 						 					 шансов проиграть. Главное - не врезаться в игровое поле и не съесть себя по мере того, как игрок \
 						 					 набирает очки.',

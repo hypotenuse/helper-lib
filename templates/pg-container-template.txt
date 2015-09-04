@@ -77,6 +77,9 @@
 						<h1 class="section-name">
 							{{ i18n.introWelcome }}
 						</h1>
+						<h2 class="intro-info">
+							{{ i18n.introInfo }}
+						</h2>
 						<div class="section-content">
 							<div class="able-to" data-go-section="2">
 								{{ i18n.introAbleTo1 }}
@@ -183,19 +186,6 @@
 									{{ i18n.sectionAboutHeaderText3 }}
 								</div>
 							</div>
-							
-							<div class="item-wrapper">
-								<div class="item-header">
-									<i class="fa fa-angle-down">
-									</i>
-									<b>
-										{{ i18n.sectionAboutHeaderName4 }}
-									</b>
-								</div>
-								<div class="item-text">
-									{{ i18n.sectionAboutHeaderText4 }}
-								</div>
-							</div>
 
 							<div class="item-wrapper">
 								<div class="item-header">
@@ -207,6 +197,19 @@
 								</div>
 								<div class="item-text">
 									{{ i18n.sectionAboutHeaderText5 }}
+								</div>
+							</div>
+							
+							<div class="item-wrapper">
+								<div class="item-header">
+									<i class="fa fa-angle-down">
+									</i>
+									<b>
+										{{ i18n.sectionAboutHeaderName4 }}
+									</b>
+								</div>
+								<div class="item-text">
+									{{ i18n.sectionAboutHeaderText4 }}
 								</div>
 							</div>
 
@@ -271,7 +274,6 @@
 				</section>
 				<!-- Section: footer -->
 				<footer>
-					<a href="/" target="_blank">/hypotenuse.github.io/</a>
 					{{ i18n.copy }}
 					<br>
 					All rights reserved
