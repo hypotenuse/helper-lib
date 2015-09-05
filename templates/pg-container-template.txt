@@ -51,13 +51,13 @@
 						</a>
 					</div>
 					<div class="social">
-						<a href="https://twitter.com" name="twitter" target="_blank">
+						<a href="https://twitter.com/hypotenuse2" name="twitter" target="_blank">
 							<i class="fa fa-twitter">
 							</i>
 						</a>
 					</div>
 					<div class="social">
-						<a href="https://www.facebook.com/pankov.ivan" name="facebook" target="_blank">
+						<a href="http://www.facebook.com/hypotenuse2" name="facebook" target="_blank">
 							<i class="fa fa-facebook">
 							</i>
 						</a>
