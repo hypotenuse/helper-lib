@@ -45,7 +45,7 @@
 
 	i18nList = [
 				{
-					'name': 'Ivan P',
+					'name': '<--- My face',
 					'undername': 'Frontend Developer',
 					'itemName1': 'Intro',
 					'itemName2': 'My apps / Works',
@@ -330,7 +330,7 @@
 				},
 
 				{
-					'name': 'Ivan P',
+					'name': '<--- Мой фейс',
 					'undername': 'Фронтенд разработчик',
 					'itemName1': 'Интро',
 					'itemName2': 'Мои приложения',
