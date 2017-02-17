@@ -45,7 +45,7 @@
 				</div>
 				<div class="menu-footer">
 					<div class="social">
-						<a href="http://vk.com/0x000f" name="vk" target="_blank">
+						<a href="http://vk.com/id372122485" name="vk" target="_blank">
 							<i class="fa fa-vk">
 							</i>
 						</a>
