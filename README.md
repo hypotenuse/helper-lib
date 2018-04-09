@@ -3,7 +3,7 @@ Helper library (exports common object to the global)
 
 Contains (dom, event, metrics, request, cookie, _ objects)
 
-#### common.dom.htmlNode => @element
+##### common.dom.htmlNode => @element
 #### common.dom.headNode => @element
 #### common.dom.bodyNode => @element
 #### common.dom.html => @element
